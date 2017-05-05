@@ -12,9 +12,9 @@ const PageContainer = (props) => (
   <PhenomicPageContainer
     {...props}
     layouts={{
+      Homepage,
       Page,
       PageError,
-      Homepage,
       Post
     }}
   />
@@ -22,6 +22,6 @@ const PageContainer = (props) => (
 
 export default (
   <Route component={AppContainer}>
-    <Route path="*" component={PageContainer}/>
+    <Route component={PageContainer} path="*"/>
   </Route>
 )

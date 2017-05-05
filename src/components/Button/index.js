@@ -18,11 +18,11 @@ const Button = ({ className, secondary, light, big, ...otherProps }) => (
 )
 
 Button.propTypes = {
+  big: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
-  secondary: PropTypes.bool,
   light: PropTypes.bool,
-  big: PropTypes.bool
+  secondary: PropTypes.bool
 }
 
 Button.displayName = 'Button'

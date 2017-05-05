@@ -10,7 +10,7 @@ const PagePreview = ({ __url, title, date, description }) => {
 
   return (
     <div className={styles.wrapper}>
-      <Link to={__url} className={styles.title}>
+      <Link className={styles.title} to={__url}>
         {title}
       </Link>
       <div className={styles.meta}>
@@ -23,7 +23,7 @@ const PagePreview = ({ __url, title, date, description }) => {
         {description}
         {' '}
       </div>
-      <Link to={__url} className={styles.readMore}>
+      <Link className={styles.readMore} to={__url}>
         <Button secondary>{'Read More →'}</Button>
       </Link>
     </div>
@@ -32,9 +32,9 @@ const PagePreview = ({ __url, title, date, description }) => {
 
 PagePreview.propTypes = {
   __url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
   date: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  title: PropTypes.string.isRequired
 }
 
 export default PagePreview

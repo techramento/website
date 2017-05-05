@@ -18,15 +18,15 @@ const Header = (props, { metadata: { pkg } }) => (
       <div className={styles.navPart2}>
         {pkg.twitter &&
           <a
-            href={`https://twitter.com/${pkg.twitter}`}
             className={styles.link}
+            href={`https://twitter.com/${pkg.twitter}`}
           >
-            <Svg svg={twitterSvg} cleanup/>
+            <Svg cleanup svg={twitterSvg}/>
             {'Twitter'}
           </a>}
         {pkg.repository &&
-          <a href={pkg.repository} className={styles.link}>
-            <Svg svg={gitHubSvg} cleanup/>
+          <a className={styles.link} href={pkg.repository}>
+            <Svg cleanup svg={gitHubSvg}/>
             {'GitHub'}
           </a>}
       </div>

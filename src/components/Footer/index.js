@@ -7,8 +7,8 @@ const Footer = () => (
     {/* If you like Phenomic, this is a way to share the love ;) */}
     <p>
       <a
-        href={process.env.PHENOMIC_HOMEPAGE}
         className={styles.phenomicReference}
+        href={process.env.PHENOMIC_HOMEPAGE}
       >
         {'Website generated with '}
         <span className={styles.phenomicReferenceName}>

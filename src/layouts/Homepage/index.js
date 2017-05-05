@@ -7,6 +7,6 @@ const Homepage = (props) => (
   <Page {...props}>
     <LatestPosts/>
   </Page>
-  )
+)
 
 export default Homepage

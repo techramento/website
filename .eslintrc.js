@@ -80,7 +80,7 @@ module.exports = {
     'no-path-concat': 'error',
     'no-return-assign': 'warn',
     'no-shadow': 'error',
-    'no-ternary': 'warn',
+    'no-ternary': 'off',
     'no-useless-computed-key': 'error',
     'no-useless-concat': 'warn',
     'no-useless-constructor': 'error',

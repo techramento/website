@@ -24,25 +24,25 @@ const Page = (
     : joinUri(process.env.PHENOMIC_USER_URL, head.hero)
 
   const meta = [
-    { property: 'og:type', content: 'article' },
-    { property: 'og:title', content: metaTitle },
+    { content: 'article', property: 'og:type' },
+    { content: metaTitle, property: 'og:title' },
     {
-      property: 'og:url',
-      content: joinUri(process.env.PHENOMIC_USER_URL, __url)
+      content: joinUri(process.env.PHENOMIC_USER_URL, __url),
+      property: 'og:url'
     },
-    { property: 'og:image', content: socialImage },
-    { property: 'og:description', content: head.description },
-    { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: metaTitle },
-    { name: 'twitter:creator', content: `@${pkg.twitter}` },
-    { name: 'twitter:description', content: head.description },
-    { name: 'twitter:image', content: socialImage },
-    { name: 'description', content: head.description }
+    { content: socialImage, property: 'og:image' },
+    { content: head.description, property: 'og:description' },
+    { content: 'summary', name: 'twitter:card' },
+    { content: metaTitle, name: 'twitter:title' },
+    { content: `@${pkg.twitter}`, name: 'twitter:creator' },
+    { content: head.description, name: 'twitter:description' },
+    { content: socialImage, name: 'twitter:image' },
+    { content: head.description, name: 'description' }
   ]
 
   return (
     <div className={styles.page}>
-      <Helmet title={metaTitle} meta={meta}/>
+      <Helmet meta={meta} title={metaTitle}/>
       {
         <div
           className={styles.hero}
@@ -78,14 +78,14 @@ const Page = (
 }
 
 Page.propTypes = {
-  children: PropTypes.node,
-  isLoading: PropTypes.bool,
   __filename: PropTypes.string,
   __url: PropTypes.string,
-  head: PropTypes.object.isRequired,
   body: PropTypes.string,
+  children: PropTypes.node,
+  footer: PropTypes.element,
+  head: PropTypes.object.isRequired,
   header: PropTypes.element,
-  footer: PropTypes.element
+  isLoading: PropTypes.bool
 }
 
 Page.contextTypes = {

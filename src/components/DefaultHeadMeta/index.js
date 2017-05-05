@@ -6,11 +6,11 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
     <Helmet
       meta={[
         {
-          name: 'generator',
-          content: `${process.env.PHENOMIC_NAME} ${process.env.PHENOMIC_VERSION}`
+          content: `${process.env.PHENOMIC_NAME} ${process.env.PHENOMIC_VERSION}`,
+          name: 'generator'
         },
-        { property: 'og:site_name', content: pkg.name },
-        { name: 'twitter:site', content: `@${pkg.twitter}` },
+        { content: pkg.name, property: 'og:site_name' },
+        { content: `@${pkg.twitter}`, name: 'twitter:site' },
         ...(props.meta ? props.meta : [])
       ]}
       script={[
@@ -26,8 +26,8 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
     <Helmet
       meta={[
         {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1'
+          content: 'width=device-width, initial-scale=1',
+          name: 'viewport'
         }
       ]}
     />

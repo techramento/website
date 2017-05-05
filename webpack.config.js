@@ -22,9 +22,9 @@ export default (config = {}) => {
   }
 
   return {
-    ...config.dev && {
+    ...(config.dev && {
       devtool: '#cheap-module-eval-source-map'
-    },
+    }),
     module: {
       noParse: /\.min\.js/,
       rules: [
@@ -32,7 +32,6 @@ export default (config = {}) => {
         // Allow to generate collection and rss feed.
         {
           // Phenomic requirement
-          test: /\.(md|markdown)$/,
           loader: phenomicLoader,
           query: {
             context: path.join(__dirname, config.source)
@@ -40,12 +39,12 @@ export default (config = {}) => {
             //   ...require("phenomic/lib/loader-preset-markdown").default
             // ]
             // See https://phenomic.io/docs/usage/plugins/
-          }
+          },
+          test: /\.(md|markdown)$/
         },
 
         // *.js => babel + eslint
         {
-          test: /\.js$/,
           include: [
             path.resolve(__dirname, 'scripts'),
             path.resolve(__dirname, 'src')
@@ -53,7 +52,8 @@ export default (config = {}) => {
           loaders: [
             'babel-loader?cacheDirectory',
             `eslint-loader${config.dev ? '?emitWarning' : ''}`
-          ]
+          ],
+          test: /\.js$/
         },
 
         // ! \\
@@ -62,8 +62,8 @@ export default (config = {}) => {
 
         // *.css => CSS Modules
         {
-          test: /\.css$/,
           exclude: /\.global\.css$/,
+
           include: path.resolve(__dirname, 'src'),
           loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
@@ -71,12 +71,10 @@ export default (config = {}) => {
               {
                 loader: 'css-loader',
                 query: {
-                  modules: true,
-                  localIdentName: (
-                    config.production
+                  localIdentName: config.production
                     ? '[hash:base64:5]'
-                    : '[path][name]--[local]--[hash:base64:5]'
-                  )
+                    : '[path][name]--[local]--[hash:base64:5]',
+                  modules: true
                 }
               },
               {
@@ -87,11 +85,11 @@ export default (config = {}) => {
                 // Query: { plugins: postcssPlugins },
               }
             ]
-          })
+          }),
+          test: /\.css$/
         },
         // *.global.css => global (normal) css
         {
-          test: /\.global\.css$/,
           include: path.resolve(__dirname, 'src'),
           loader: ExtractTextPlugin.extract({
             fallback: 'style-loader',
@@ -105,7 +103,8 @@ export default (config = {}) => {
                 // Query: { plugins: postcssPlugins },
               }
             ]
-          })
+          }),
+          test: /\.global\.css$/
         },
         // ! \\
         // If you want global CSS only, just remove the 2 sections above
@@ -144,57 +143,60 @@ export default (config = {}) => {
 
         // Copy assets and return generated path in js
         {
-          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2)$/,
           loader: 'file-loader',
           query: {
-            name: '[path][name].[hash].[ext]',
-            context: path.join(__dirname, config.source)
-          }
+            context: path.join(__dirname, config.source),
+            name: '[path][name].[hash].[ext]'
+          },
+          test: /\.(html|ico|jpe?g|png|gif|eot|otf|webp|ttf|woff|woff2)$/
         },
 
         // Svg as raw string to be inlined
         {
-          test: /\.svg$/,
-          loader: 'raw-loader'
-
+          loader: 'raw-loader',
+          test: /\.svg$/
         }
       ]
     },
-
+    output: {
+      filename: '[name].[hash].js',
+      path: path.join(__dirname, config.destination),
+      publicPath: config.baseUrl.pathname
+    },
     plugins: [
       // You should be able to remove the block below when the following
       // Issue has been correctly handled (and postcss-loader supports
       // "plugins" option directly in query, see postcss-loader usage above)
       // https://github.com/postcss/postcss-loader/issues/99
       new webpack.LoaderOptionsPlugin({
-        test: /\.css$/,
         options: {
-          postcss: postcssPlugins,
           // Required to avoid issue css-loader?modules
           // This is normally the default value, but when we use
           // LoaderOptionsPlugin, we must specify it again, otherwise,
           // Context is missing (and css modules names can be broken)!
-          context: __dirname
-        }
+          context: __dirname,
+          postcss: postcssPlugins
+        },
+        test: /\.css$/
       }),
 
       new PhenomicLoaderFeedWebpackPlugin({
-        // Here you define generic metadata for your feed
-        feedsOptions: {
-          title: pkg.name,
-          site_url: pkg.homepage
-        },
         feeds: {
           // Here we define one feed, but you can generate multiple, based
           // On different filters
           'feed.xml': {
             collectionOptions: {
               filter: { layout: 'Post' },
-              sort: 'date',
+              limit: 20,
               reverse: true,
-              limit: 20
+              sort: 'date'
             }
           }
+        },
+        // Here you define generic metadata for your feed
+        feedsOptions: {
+          site_url: pkg.homepage,
+          title: pkg.name
         }
       }),
 
@@ -203,23 +205,15 @@ export default (config = {}) => {
       }),
 
       new ExtractTextPlugin({
-        filename: '[name].[hash].css',
-        disable: config.dev
+        disable: config.dev,
+        filename: '[name].[hash].css'
       }),
 
-      ...config.production && [
-        new webpack.optimize.UglifyJsPlugin(
-          { compress: { warnings: false } }
-        )
-      ]
+      ...(config.production && [
+        new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
+      ])
     ],
 
-    output: {
-      path: path.join(__dirname, config.destination),
-      publicPath: config.baseUrl.pathname,
-      filename: '[name].[hash].js'
-    },
-
-    resolve: { extensions: [ '.js', '.json' ] }
+    resolve: { extensions: ['.js', '.json'] }
   }
 }
