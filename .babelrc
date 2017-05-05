@@ -1,0 +1,109 @@
+// webpack-(development|production) are useful for webpack 2, otherwise use development|production
+{
+  "env": {
+    "test": {
+      "presets": [
+        "babel-preset-env",
+        "babel-preset-stage-2",
+        "babel-preset-react"
+      ]
+    },
+    "development": {
+      "presets": [
+        "babel-preset-env",
+        "babel-preset-stage-2",
+        "babel-preset-react"
+      ],
+      "plugins": [
+        "babel-plugin-transform-react-jsx-source",
+        "babel-plugin-transform-react-jsx-self",
+        "react-hot-loader/babel",
+        "transform-class-properties",
+        [
+          "transform-object-rest-spread",
+          {
+            "useBuiltIns": true
+          }
+        ],
+        [
+          "transform-react-jsx",
+          {
+            "useBuiltIns": true
+          }
+        ],
+        [
+          "transform-runtime",
+          {
+            "helpers": false,
+            "polyfill": false,
+            "regenerator": false
+          }
+        ]
+      ],
+    },
+    "production": {
+      "comments": false,
+      "presets": [
+        "babel-preset-react-optimize",
+        "babel-preset-env",
+        "babel-preset-stage-2",
+        "babel-preset-react"
+      ],
+      "plugins": [
+        "transform-class-properties",
+        [
+          "transform-object-rest-spread",
+          {
+            "useBuiltIns": true
+          }
+        ],
+        [
+          "transform-react-jsx",
+          {
+            "useBuiltIns": true
+          }
+        ],
+        [
+          "transform-runtime",
+          {
+            "helpers": false,
+            "polyfill": false,
+            "regenerator": false
+          }
+        ],
+        "transform-react-inline-elements",
+        "transform-react-remove-prop-types"
+      ],
+    },
+    "webpack-development": {
+      "presets": [
+        [
+          "babel-preset-env",
+          {
+            "modules": false
+          }
+        ],
+        "babel-preset-stage-2",
+        "babel-preset-react"
+      ],
+      "plugins": [
+        "babel-plugin-transform-react-jsx-source",
+        "babel-plugin-transform-react-jsx-self",
+        "react-hot-loader/babel"
+      ]
+    },
+    "webpack-production": {
+      "presets": [
+        "babel-preset-react-optimize",
+        [
+          "babel-preset-env",
+          {
+            "modules": false
+          }
+        ],
+        "babel-preset-stage-2",
+        "babel-preset-react"
+      ]
+    }
+  }
+}
