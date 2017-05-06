@@ -5,6 +5,8 @@ import React from 'react'
 const style = {
   content: {
     alignSelf: 'center',
+    display: 'flex',
+    flexDirection: 'column',
     maxWidth: 'var(--maxWidth)',
     width: '100%'
   }

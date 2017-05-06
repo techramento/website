@@ -6,11 +6,16 @@ const SystemFont =
 
 const theme = {
   variables: {
+    backgroundColor: 'white',
+    colorAccent: colorScheme.DeepAquamarine,
+    colorLink: colorScheme.DeepAquamarine,
     colorNeutral: colorScheme.Manatee,
     colorNeutralDark: colorScheme['Manatee-Dark'],
     colorNeutralLight: colorScheme['Manatee-Light'],
+    colorNeutralLighter: colorScheme['Manatee-Lighter'],
     colorPrimary: colorScheme.DeepAquamarine,
     colorPrimaryDark: colorScheme['DeepAquamarine-Dark'],
+    colorRule: 'var(--colorNeutralLighter)',
     colorSecondary: colorScheme.LightSalmon,
     colorSecondaryDark: colorScheme['LightSalmon-Dark'],
     colorText: colorScheme.SmokyBlack,

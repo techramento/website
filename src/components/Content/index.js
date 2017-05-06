@@ -1,15 +1,27 @@
-import React, { PropTypes } from 'react'
+import { Bit } from 'stemcell'
+import { array, node, object, oneOfType } from 'prop-types'
+import React from 'react'
 
-import styles from './index.css'
+const style = {
+  root: {
+    alignItems: 'stretch',
+    display: 'flex',
+    flexBasis: 'auto',
+    flexDirection: 'column',
+    flexGrow: 1,
+    flexShrink: 1
+  }
+}
 
-const Content = (props) => (
-  <div className={styles.content}>
-    {props.children}
-  </div>
+const Content = ({ children, css, ...props }) => (
+  <Bit css={[style.root, css]} {...props}>
+    {children}
+  </Bit>
 )
 
 Content.propTypes = {
-  children: PropTypes.node
+  children: node,
+  css: oneOfType([array, object])
 }
 
 export default Content

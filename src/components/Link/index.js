@@ -8,17 +8,17 @@ const isExternalLink = (to) => to && to.includes('://')
 const style = {
   outline: {
     ':hover': {
-      backgroundColor: 'var(--linkColor)',
-      borderColor: 'var(--linkColor)',
-      color: 'var(--accentColor)'
+      backgroundColor: 'var(--colorLink)',
+      borderColor: 'var(--colorLink)',
+      color: 'var(--colorAccent)'
     },
-    borderColor: 'var(--linkColor)',
+    borderColor: 'var(--colorLink)',
     textAlign: 'center',
-    textDecoration: 'none',
     textTransform: 'uppercase'
   },
   root: {
-    color: 'var(--linkColor)',
+    color: 'var(--colorLink)',
+    textDecoration: 'none',
     transition: '0.4s all'
   }
 }

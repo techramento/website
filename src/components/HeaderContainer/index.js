@@ -4,10 +4,10 @@ import React from 'react'
 
 const style = {
   root: {
-    '--accentColor': 'var(--colorPrimary)',
-    '--linkColor': 'var(--textColor)',
-    '--textColor': 'white',
-    color: 'var(--textColor)',
+    '--colorAccent': 'var(--colorPrimary)',
+    '--colorLink': 'var(--colorText)',
+    '--colorText': 'white',
+    color: 'var(--colorText)',
     fontFamily: `var(--fontAccent)`,
     fontWeight: 400
   }

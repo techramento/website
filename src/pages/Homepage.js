@@ -1,6 +1,7 @@
 import AppContainer from '../AppContainer'
 import CallToAction from '../components/CallToAction'
 import FeaturedSitePages from '../components/FeaturedSitePages'
+import LatestPosts from '../components/LatestPosts'
 import Link from '../components/Link'
 import Page from '../layouts/Page'
 import React from 'react'
@@ -29,6 +30,7 @@ const Homepage = (props) => (
   <AppContainer>
     <Page callToAction={callToAction} colorOverlay={false} head={head}>
       <FeaturedSitePages marginTop={2}/>
+      <LatestPosts marginTop={4} numberOfPosts={3}/>
     </Page>
   </AppContainer>
 )

@@ -9,6 +9,10 @@ import React from 'react'
 import warning from 'warning'
 
 const style = {
+  content: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
   heading: {
     alignSelf: 'center',
     display: 'flex',
@@ -46,7 +50,8 @@ const Page = (
     colorOverlay,
     header,
     footer,
-    children
+    children,
+    ...props
   },
   { metadata: { pkg, metaTitle } }
 ) => {
@@ -110,7 +115,7 @@ const Page = (
     }
   ]
   return (
-    <Bit>
+    <Bit {...props}>
       <Helmet meta={meta} title={metaTitle}/>
       <HeaderContainer css={style.pageHeader} paddingVertical={3}>
         <HeroOverlay
@@ -120,7 +125,7 @@ const Page = (
         />
         {callToAction(head)}
       </HeaderContainer>
-      <Bit>
+      <Bit css={style.content}>
         {header}
         <Bit>
           {isLoading ? <Loading/> : <BodyContainer>{body}</BodyContainer>}

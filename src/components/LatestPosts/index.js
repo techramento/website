@@ -1,35 +1,59 @@
-import React, { PropTypes } from 'react'
+import { array, number } from 'prop-types'
+import { Bit } from 'stemcell'
+import ComponentHeading from '../ComponentHeading'
 import enhanceCollection from 'phenomic/lib/enhance-collection'
+import Link from '../Link'
+import List from '../List'
+import PagePreview from '../PagePreview'
+import React from 'react'
+import Section from '../Section'
 
-import PagesList from '../../components/PagesList'
+const style = {
+  footer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  link: {
+    fontFamily: 'var(--fontAccent)'
+  }
+}
 
-import styles from './index.css'
-
-const defaultNumberOfPosts = 6
-
-const LatestPosts = (props, { collection }) => {
+const LatestPosts = ({ numberOfPosts, ...props }, { collection }) => {
   const latestPosts = enhanceCollection(collection, {
-    filter: { layout: 'Post' },
+    filter: {
+      layout: 'Post'
+    },
     reverse: true,
     sort: 'date'
-  }).slice(0, props.numberOfPosts || defaultNumberOfPosts)
-
+  }).slice(0, numberOfPosts)
   return (
-    <div>
-      <h2 className={styles.latestPosts}>
-        {'Latest Posts'}
-      </h2>
-      <PagesList pages={latestPosts}/>
-    </div>
+    <Section {...props}>
+      <ComponentHeading align="center">
+        Latest Posts
+      </ComponentHeading>
+      <List collection={latestPosts} emptyMessage="No posts yet">
+        {(page) => <PagePreview {...page} key={page.title}/>}
+      </List>
+      <Bit css={style.footer} marginTop={2}>
+        <Link css={style.link} inline={false} outline to="posts">
+          All Posts
+        </Link>
+      </Bit>
+    </Section>
   )
 }
 
+LatestPosts.defaultPops = {
+  numberOfPosts: 6
+}
+
 LatestPosts.propTypes = {
-  numberOfPosts: PropTypes.number
+  numberOfPosts: number
 }
 
 LatestPosts.contextTypes = {
-  collection: PropTypes.array.isRequired
+  collection: array.isRequired
 }
 
 export default LatestPosts
