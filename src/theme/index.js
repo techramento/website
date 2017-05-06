@@ -6,8 +6,8 @@ const SystemFont =
 
 const theme = {
   variables: {
-    backgroundColor: 'white',
     colorAccent: colorScheme.DeepAquamarine,
+    colorBackground: 'white',
     colorLink: colorScheme.DeepAquamarine,
     colorNeutral: colorScheme.Manatee,
     colorNeutralDark: colorScheme['Manatee-Dark'],

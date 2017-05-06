@@ -7,7 +7,7 @@ import theme from './theme'
 const rules = {
   ':root': theme.variables,
   body: {
-    backgroundColor: 'var(--backgroundColor)',
+    backgroundColor: 'var(--colorBackground)',
     fontFamily: 'var(--fontPrimary)',
     position: 'relative' // TODO: Determine why this is needed
   }

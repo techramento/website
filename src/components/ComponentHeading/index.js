@@ -39,7 +39,7 @@ const style = {
     }
   },
   text: {
-    backgroundColor: 'var(--backgroundColor)',
+    backgroundColor: 'var(--colorBackground)',
     fontFamily: 'var(--fontAccent)',
     textAlign: 'center',
     textTransform: 'uppercase'

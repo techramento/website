@@ -13,9 +13,6 @@ const style = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center'
-  },
-  link: {
-    fontFamily: 'var(--fontAccent)'
   }
 }
 

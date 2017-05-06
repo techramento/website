@@ -10,9 +10,10 @@ const style = {
     ':hover': {
       backgroundColor: 'var(--colorLink)',
       borderColor: 'var(--colorLink)',
-      color: 'var(--colorAccent)'
+      color: 'var(--colorBackground)'
     },
     borderColor: 'var(--colorLink)',
+    fontFamily: 'var(--fontAccent)',
     textAlign: 'center',
     textTransform: 'uppercase'
   },
