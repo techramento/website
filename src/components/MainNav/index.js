@@ -47,7 +47,7 @@ const MainNav = ({ children, ...props }, { metadata: { mainNav } }) => {
   return (
     <Bit css={style.root} marginTop={1}>
       {leftLinks}
-      {children}
+      <Link inline={false} to="/">{children}</Link>
       {links}
     </Bit>
   )
