@@ -1,4 +1,5 @@
 import AppContainer from './AppContainer'
+import Community from './pages/Community'
 import Homepage from './pages/Homepage'
 import Page from './layouts/Page'
 import { PageContainer as PhenomicPageContainer } from 'phenomic'
@@ -21,6 +22,7 @@ const PageContainer = (props) => (
 
 export default (
   <Route component={SiteShell}>
+    <Route component={Community} path="/community"/>
     <Route component={Homepage} path="/"/>
     <Route component={AppContainer}>
       <Route component={PageContainer} path="*"/>
