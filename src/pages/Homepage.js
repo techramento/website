@@ -6,6 +6,7 @@ import LatestPosts from '../components/LatestPosts'
 import Link from '../components/Link'
 import Page from '../layouts/Page'
 import React from 'react'
+import SponsorList from '../components/SponsorList'
 
 const CtaText = 'Build your<br/>community with<br/>a meetup grant'
 
@@ -33,6 +34,7 @@ const Homepage = (props) => (
       <FeaturedSitePages marginTop={2}/>
       <LatestPosts marginTop={4} numberOfPosts={3}/>
       <CommunityList marginTop={5}/>
+      <SponsorList marginTop={6}/>
     </Page>
   </AppContainer>
 )

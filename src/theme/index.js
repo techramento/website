@@ -13,6 +13,7 @@ const theme = {
     colorNeutralDark: colorScheme['Manatee-Dark'],
     colorNeutralLight: colorScheme['Manatee-Light'],
     colorNeutralLighter: colorScheme['Manatee-Lighter'],
+    colorNeutralLightest: colorScheme['Manatee-Lightest'],
     colorPrimary: colorScheme.DeepAquamarine,
     colorPrimaryDark: colorScheme['DeepAquamarine-Dark'],
     colorRule: 'var(--colorNeutralLighter)',

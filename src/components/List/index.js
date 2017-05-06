@@ -8,11 +8,15 @@ import {
   node,
   string
 } from 'prop-types'
-import { Bit, Text } from 'stemcell'
+import { Bit, Paragraph } from 'stemcell'
 import emptyAry from 'empty/array'
 import React, { isValidElement } from 'react'
 
 const style = {
+  emptyMsg: {
+    color: 'var(--colorNeutralLightest)',
+    fontFamily: 'var(--fontAccent)'
+  },
   root: {
     listStyle: 'none',
     padding: 0
@@ -39,7 +43,7 @@ const List = ({
     }
     items = items.map(children)
   } else if (!isValidElement(emptyMessage)) {
-    items = <Text>{emptyMessage}</Text>
+    items = <Paragraph css={style.emptyMsg}>{emptyMessage}</Paragraph>
   }
   return (
     <Bit css={[style.root, css]} {...props}>
