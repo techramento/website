@@ -26,18 +26,6 @@ module.exports = {
     'arrow-body-style': 'error',
     'arrow-parens': 'error',
     'arrow-spacing': 'error',
-    'capitalized-comments': [
-      'warn',
-      'always',
-      {
-        line: {
-          ignorePattern: 'import|console'
-        },
-        block: {
-          ignoreConsecutiveComments: true
-        }
-      }
-    ],
     'computed-property-spacing': 'warn',
     'consistent-return': 'warn',
     curly: 'warn',
