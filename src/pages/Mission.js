@@ -1,19 +1,28 @@
 import AppContainer from '../AppContainer'
+import { arrayOf, shape, string } from 'prop-types'
 import { Bit } from 'stemcell'
+import { findMainPage } from '../util/mainNavTools'
 import Page from '../layouts/Page'
 import React from 'react'
 
-const head = {
-  hero: 'https://farm4.staticflickr.com/3949/15589950511_3675b15e59_k.jpg',
-  title: `Our Mission`
-}
-
-const Join = (props) => (
+const Join = (props, { metadata: { mainNav } }) => (
   <AppContainer>
-    <Page head={head}>
+    <Page head={findMainPage(mainNav, 'Mission')}>
       <Bit>OUR MISSION</Bit>
     </Page>
   </AppContainer>
 )
+
+Join.contextTypes = {
+  metadata: shape({
+    mainNav: arrayOf(
+      shape({
+        description: string,
+        label: string,
+        route: string
+      })
+    ).isRequired
+  }).isRequired
+}
 
 export default Join

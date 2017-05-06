@@ -38,6 +38,7 @@
     "url": "git+https://github.com/techramento/website.git"
   },
   "dependencies": {
+    "empty": "^0.10.1",
     "glamor": "^2.20.25",
     "lodash-es": "^4.17.4",
     "prop-types": "^15.5.8",
