@@ -1,18 +1,17 @@
+import AppContainer from './AppContainer'
+import Homepage from './pages/Homepage'
+import Page from './layouts/Page'
+import { PageContainer as PhenomicPageContainer } from 'phenomic'
+import PageError from './layouts/PageError'
+import Post from './layouts/Post'
 import React from 'react'
 import { Route } from 'react-router'
-import { PageContainer as PhenomicPageContainer } from 'phenomic'
-
-import AppContainer from './AppContainer'
-import Page from './layouts/Page'
-import PageError from './layouts/PageError'
-import Homepage from './layouts/Homepage'
-import Post from './layouts/Post'
+import SiteShell from './SiteShell'
 
 const PageContainer = (props) => (
   <PhenomicPageContainer
     {...props}
     layouts={{
-      Homepage,
       Page,
       PageError,
       Post
@@ -21,7 +20,10 @@ const PageContainer = (props) => (
 )
 
 export default (
-  <Route component={AppContainer}>
-    <Route component={PageContainer} path="*"/>
+  <Route component={SiteShell}>
+    <Route component={Homepage} path="/"/>
+    <Route component={AppContainer}>
+      <Route component={PageContainer} path="*"/>
+    </Route>
   </Route>
 )

@@ -1,41 +1,40 @@
-import React, { PropTypes } from 'react'
-import { Link } from 'phenomic'
-import Svg from 'react-svg-inline'
+import { Bit, Image } from 'stemcell'
+import HeaderContainer from '../HeaderContainer'
+import MainNav from '../MainNav'
+import { object } from 'prop-types'
+import React from 'react'
+import Section from '../Section'
 
-import twitterSvg from '../icons/iconmonstr-twitter-1.svg'
-import gitHubSvg from '../icons/iconmonstr-github-1.svg'
-
-import styles from './index.css'
+const style = {
+  keystone: {
+    alignItems: 'center'
+  },
+  root: {
+    position: 'absolute',
+    zIndex: 999
+  }
+}
 
 const Header = (props, { metadata: { pkg } }) => (
-  <header className={styles.header}>
-    <nav className={styles.nav}>
-      <div className={styles.navPart1}>
-        <Link className={styles.link} to={'/'}>
-          {'Home'}
-        </Link>
-      </div>
-      <div className={styles.navPart2}>
-        {pkg.twitter &&
-          <a
-            className={styles.link}
-            href={`https://twitter.com/${pkg.twitter}`}
-          >
-            <Svg cleanup svg={twitterSvg}/>
-            {'Twitter'}
-          </a>}
-        {pkg.repository &&
-          <a className={styles.link} href={pkg.repository}>
-            <Svg cleanup svg={gitHubSvg}/>
-            {'GitHub'}
-          </a>}
-      </div>
-    </nav>
-  </header>
+  <Section css={style.root} top={0}>
+    <HeaderContainer>
+      <MainNav>
+        <Bit css={style.keystone} maxHeight={6} paddingHorizontal={3}>
+          <Image
+            alt=""
+            css={style.logo}
+            height={7}
+            src="/assets/techramento_logo.svg"
+            width={9}
+          />
+        </Bit>
+      </MainNav>
+    </HeaderContainer>
+  </Section>
 )
 
 Header.contextTypes = {
-  metadata: PropTypes.object.isRequired
+  metadata: object.isRequired
 }
 
 export default Header

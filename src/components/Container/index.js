@@ -1,11 +1,18 @@
+import { Bit } from 'stemcell'
 import React, { PropTypes } from 'react'
 
-import styles from './index.css'
+const style = {
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh'
+  }
+}
 
-const Container = (props) => (
-  <div className={styles.container}>
-    {props.children}
-  </div>
+const Container = ({ children, ...props }) => (
+  <Bit css={style.root} {...props}>
+    {children}
+  </Bit>
 )
 
 Container.propTypes = {

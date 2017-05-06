@@ -1,8 +1,10 @@
-import React, { PropTypes } from 'react'
+import { arrayOf, object } from 'prop-types'
+import { Bit } from 'stemcell'
 import Helmet from 'react-helmet'
+import React from 'react'
 
 const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
-  <div hidden>
+  <Bit hidden>
     <Helmet
       meta={[
         {
@@ -21,8 +23,15 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
         ...(props.scripts ? props.scripts : [])
       ]}
     />
-
-    {/* Meta viewport safari/chrome/edge */}
+    <Helmet
+      link={[
+        {
+          // eslint-disable-next-line max-len
+          href: '//fonts.googleapis.com/css?family=Montserrat|PT+Serif:400,400i,700',
+          rel: 'stylesheet'
+        }
+      ]}
+    />
     <Helmet
       meta={[
         {
@@ -32,16 +41,16 @@ const DefaultHeadMeta = (props, { metadata: { pkg } }) => (
       ]}
     />
     <style>{'@-ms-viewport { width: device-width; }'}</style>
-  </div>
+  </Bit>
 )
 
 DefaultHeadMeta.propTypes = {
-  meta: React.PropTypes.arrayOf(React.PropTypes.object),
-  scripts: React.PropTypes.arrayOf(React.PropTypes.object)
+  meta: arrayOf(object),
+  scripts: arrayOf(object)
 }
 
 DefaultHeadMeta.contextTypes = {
-  metadata: PropTypes.object.isRequired
+  metadata: object.isRequired
 }
 
 export default DefaultHeadMeta

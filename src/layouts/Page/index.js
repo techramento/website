@@ -1,95 +1,160 @@
-import React, { PropTypes } from 'react'
+import { Bit, Heading } from 'stemcell'
+import { BodyContainer, joinUri } from 'phenomic'
+import { bool, element, func, node, object, shape, string } from 'prop-types'
+import HeaderContainer from '../../components/HeaderContainer'
 import Helmet from 'react-helmet'
-import warning from 'warning'
-import { BodyContainer, joinUri, Link } from 'phenomic'
-
-import Button from '../../components/Button'
+import HeroOverlay from '../../components/HeroOverlay'
 import Loading from '../../components/Loading'
+import React from 'react'
+import warning from 'warning'
 
-import styles from './index.css'
+const style = {
+  heading: {
+    alignSelf: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+    textAlign: 'center',
+    textTransform: 'uppercase'
+  },
+  overlay: {
+    backgroundColor: 'var(--colorPrimary)'
+  },
+  pageHeader: {
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative' // TODO: Move to stemcell?
+  }
+}
+
+function defaultCallToAction (head) {
+  return (
+    <Heading css={style.heading} level={1} marginTop={6} size="doublePica">
+      {head.title}
+    </Heading>
+  )
+}
 
 const Page = (
-  { isLoading, __filename, __url, head, body, header, footer, children },
-  { metadata: { pkg } }
+  {
+    isLoading,
+    __filename,
+    __url,
+    callToAction,
+    head,
+    body,
+    colorOverlay,
+    header,
+    footer,
+    children
+  },
+  { metadata: { pkg, metaTitle } }
 ) => {
   warning(
     typeof head.title === 'string',
     `Your page '${__filename}' needs a title`
   )
-
-  const metaTitle = head.metaTitle ? head.metaTitle : head.title
-
-  const socialImage = head.hero && head.hero.match('://')
-    ? head.hero
-    : joinUri(process.env.PHENOMIC_USER_URL, head.hero)
-
+  metaTitle = [
+    metaTitle,
+    (head.metaTitle || head.title).replace(/<br\/>/gi, ' ')
+  ].join(': ')
+  let socialImage = joinUri(process.env.PHENOMIC_USER_URL, head.hero)
+  if (head.hero && head.hero.match('://')) {
+    socialImage = head.hero
+  }
   const meta = [
-    { content: 'article', property: 'og:type' },
-    { content: metaTitle, property: 'og:title' },
+    // TODO: Move all of this to a component
+    {
+      content: 'article',
+      property: 'og:type'
+    },
+    {
+      content: metaTitle,
+      property: 'og:title'
+    },
     {
       content: joinUri(process.env.PHENOMIC_USER_URL, __url),
       property: 'og:url'
     },
-    { content: socialImage, property: 'og:image' },
-    { content: head.description, property: 'og:description' },
-    { content: 'summary', name: 'twitter:card' },
-    { content: metaTitle, name: 'twitter:title' },
-    { content: `@${pkg.twitter}`, name: 'twitter:creator' },
-    { content: head.description, name: 'twitter:description' },
-    { content: socialImage, name: 'twitter:image' },
-    { content: head.description, name: 'description' }
+    {
+      content: socialImage,
+      property: 'og:image'
+    },
+    {
+      content: head.description,
+      property: 'og:description'
+    },
+    {
+      content: 'summary',
+      name: 'twitter:card'
+    },
+    {
+      content: metaTitle,
+      name: 'twitter:title'
+    },
+    {
+      content: `@${pkg.twitter}`,
+      name: 'twitter:creator'
+    },
+    {
+      content: head.description,
+      name: 'twitter:description'
+    },
+    {
+      content: socialImage,
+      name: 'twitter:image'
+    },
+    {
+      content: head.description,
+      name: 'description'
+    }
   ]
-
   return (
-    <div className={styles.page}>
+    <Bit>
       <Helmet meta={meta} title={metaTitle}/>
-      {
-        <div
-          className={styles.hero}
-          style={
-            head.hero && {
-              background: `#111 url(${head.hero}) 50% 50% / cover`
-            }
-          }
-        >
-          <div className={styles.header}>
-            <div className={styles.wrapper}>
-              <h1 className={styles.heading}>{head.title}</h1>
-              {head.cta &&
-                <Link to={head.cta.link}>
-                  <Button className={styles.cta} light {...head.cta.props}>
-                    {head.cta.label}
-                  </Button>
-                </Link>}
-            </div>
-          </div>
-        </div>
-      }
-      <div className={`${styles.wrapper} ${styles.pageContent}`}>
+      <HeaderContainer css={style.pageHeader} paddingVertical={3}>
+        <HeroOverlay
+          blend={colorOverlay}
+          css={style.overlay}
+          hero={head.hero}
+        />
+        {callToAction(head)}
+      </HeaderContainer>
+      <Bit>
         {header}
-        <div className={styles.body}>
+        <Bit>
           {isLoading ? <Loading/> : <BodyContainer>{body}</BodyContainer>}
-        </div>
+        </Bit>
         {children}
         {footer}
-      </div>
-    </div>
+      </Bit>
+    </Bit>
   )
 }
 
+Page.defaultProps = {
+  body: '',
+  callToAction: defaultCallToAction
+}
+
 Page.propTypes = {
-  __filename: PropTypes.string,
-  __url: PropTypes.string,
-  body: PropTypes.string,
-  children: PropTypes.node,
-  footer: PropTypes.element,
-  head: PropTypes.object.isRequired,
-  header: PropTypes.element,
-  isLoading: PropTypes.bool
+  __filename: string,
+  __url: string,
+  body: string,
+  callToAction: func,
+  children: node,
+  colorOverlay: bool,
+  footer: element,
+  head: object.isRequired,
+  header: element,
+  isLoading: bool
 }
 
 Page.contextTypes = {
-  metadata: PropTypes.object.isRequired
+  metadata: shape({
+    metaTitle: string.isRequired,
+    pkg: object.isRequired
+  }).isRequired
 }
 
 export default Page
