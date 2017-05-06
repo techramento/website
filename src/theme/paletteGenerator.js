@@ -1,15 +1,17 @@
 import { darken, lighten } from 'zamora'
 import { fromPairs, reduce, sortBy, toPairs } from 'lodash'
 
+const scale = 'major eleventh'
+
 export function darkenPalette (colorPalette) {
   return reduce(
     colorPalette,
     (darkenedPalette, value, name) => ({
       ...darkenedPalette,
-      [`${name}-Dark`]: darken(value, { steps: 2.5 }),
-      [`${name}-Darker`]: darken(value, { steps: 5 }),
-      [`${name}-Darkest`]: darken(value, { steps: 7.5 }),
-      [`${name}-PureDark`]: darken(value, { steps: 8.75 })
+      [`${name}-Dark`]: darken(value, { scale, steps: 1 }),
+      [`${name}-Darker`]: darken(value, { scale, steps: 2 }),
+      [`${name}-Darkest`]: darken(value, { scale, steps: 3 }),
+      [`${name}-PureDark`]: darken(value, { scale, steps: 4 })
     }),
     {}
   )
@@ -20,10 +22,10 @@ export function lightenPalette (colorPalette) {
     colorPalette,
     (lightenedPalette, value, name) => ({
       ...lightenedPalette,
-      [`${name}-Light`]: lighten(value, { steps: 2.5 }),
-      [`${name}-Lighter`]: lighten(value, { steps: 5 }),
-      [`${name}-Lightest`]: lighten(value, { steps: 7.5 }),
-      [`${name}-PureLight`]: lighten(value, { steps: 8.75 })
+      [`${name}-Light`]: lighten(value, { scale, steps: 1 }),
+      [`${name}-Lighter`]: lighten(value, { scale, steps: 2 }),
+      [`${name}-Lightest`]: lighten(value, { scale, steps: 3 }),
+      [`${name}-PureLight`]: lighten(value, { scale, steps: 4 })
     }),
     {}
   )

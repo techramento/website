@@ -7,6 +7,7 @@ import Link from '../components/Link'
 import Page from '../layouts/Page'
 import React from 'react'
 import SponsorList from '../components/SponsorList'
+import UpcomingEvents from '../components/UpcomingEvents'
 
 const CtaText = 'Build your<br/>community with<br/>a meetup grant'
 
@@ -33,6 +34,7 @@ const Homepage = (props) => (
     <Page callToAction={callToAction} colorOverlay={false} head={head}>
       <FeaturedSitePages marginTop={2}/>
       <LatestPosts marginTop={4} numberOfPosts={3}/>
+      <UpcomingEvents marginTop={4} numberOfEvents={2}/>
       <CommunityList marginTop={5}/>
       <SponsorList marginTop={6}/>
     </Page>

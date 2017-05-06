@@ -41,7 +41,9 @@
     "empty": "^0.10.1",
     "glamor": "^2.20.25",
     "lodash-es": "^4.17.4",
+    "moment": "^2.18.1",
     "prop-types": "^15.5.8",
+    "react-fetch-component": "^2.5.1",
     "stemcell": "^1.0.0",
     "zamora": "^1.0.0"
   },
