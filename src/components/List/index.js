@@ -14,7 +14,7 @@ import React, { isValidElement } from 'react'
 
 const style = {
   emptyMsg: {
-    color: 'var(--colorNeutralLightest)',
+    color: 'var(--colorEmpty)',
     fontFamily: 'var(--fontAccent)'
   },
   root: {

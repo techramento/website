@@ -3,29 +3,21 @@ import { fromPairs, reduce, sortBy, toPairs } from 'lodash'
 
 const scale = 'major eleventh'
 
-export function darkenPalette (colorPalette) {
+export function swatchify (colorPalette) {
   return reduce(
     colorPalette,
-    (darkenedPalette, value, name) => ({
-      ...darkenedPalette,
-      [`${name}-Dark`]: darken(value, { scale, steps: 1 }),
-      [`${name}-Darker`]: darken(value, { scale, steps: 2 }),
-      [`${name}-Darkest`]: darken(value, { scale, steps: 3 }),
-      [`${name}-PureDark`]: darken(value, { scale, steps: 4 })
-    }),
-    {}
-  )
-}
-
-export function lightenPalette (colorPalette) {
-  return reduce(
-    colorPalette,
-    (lightenedPalette, value, name) => ({
-      ...lightenedPalette,
-      [`${name}-Light`]: lighten(value, { scale, steps: 1 }),
-      [`${name}-Lighter`]: lighten(value, { scale, steps: 2 }),
-      [`${name}-Lightest`]: lighten(value, { scale, steps: 3 }),
-      [`${name}-PureLight`]: lighten(value, { scale, steps: 4 })
+    (swatches, value, name) => ({
+      ...swatches,
+      [`${name}-50`]: lighten(value, { scale, steps: 4.6 }),
+      [`${name}-100`]: lighten(value, { scale, steps: 4 }),
+      [`${name}-200`]: lighten(value, { scale, steps: 3 }),
+      [`${name}-300`]: lighten(value, { scale, steps: 2 }),
+      [`${name}-400`]: lighten(value, { scale, steps: 1 }),
+      [`${name}-500`]: value,
+      [`${name}-600`]: darken(value, { scale, steps: 1 }),
+      [`${name}-700`]: darken(value, { scale, steps: 2 }),
+      [`${name}-800`]: darken(value, { scale, steps: 3 }),
+      [`${name}-900`]: darken(value, { scale, steps: 4 })
     }),
     {}
   )
@@ -36,9 +28,7 @@ export function palette (baseColorPalette) {
   return fromPairs(
     sortBy(
       toPairs({
-        ...lightenPalette(baseColorPalette),
-        ...baseColorPalette,
-        ...darkenPalette(baseColorPalette)
+        ...swatchify(baseColorPalette)
       }),
       0
     )

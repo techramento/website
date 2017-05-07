@@ -12,7 +12,7 @@ const style = {
   },
   invertedRule: {
     [false]: {
-      borderColor: 'var(--colorNeutral)'
+      borderColor: 'var(--colorNeutral-500)'
     },
     [true]: {
       borderColor: 'white'

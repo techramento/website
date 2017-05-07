@@ -6,30 +6,35 @@ const SystemFont =
 
 const theme = {
   variables: {
-    colorAccent: colorScheme.DeepAquamarine,
+    /* eslint-disable sort-keys */
+    colorAccent: 'var(--colorPrimary-500)',
+    colorAside: 'white',
     colorBackground: 'white',
-    colorDanger: colorScheme.LightSalmon,
-    colorLink: colorScheme.DeepAquamarine,
-    colorNeutral: colorScheme.Manatee,
-    colorNeutralDark: colorScheme['Manatee-Dark'],
-    colorNeutralDarker: colorScheme['Manatee-Darker'],
-    colorNeutralDarkest: colorScheme['Manatee-Darkest'],
-    colorNeutralLight: colorScheme['Manatee-Light'],
-    colorNeutralLighter: colorScheme['Manatee-Lighter'],
-    colorNeutralLightest: colorScheme['Manatee-Lightest'],
-    colorNeutralPureDark: colorScheme['Manatee-PureDark'],
-    colorNeutralPureLight: colorScheme['Manatee-PureLight'],
-    colorPrimary: colorScheme.DeepAquamarine,
-    colorPrimaryDark: colorScheme['DeepAquamarine-Dark'],
-    colorRule: 'var(--colorNeutralLighter)',
-    colorSecondary: colorScheme.LightSalmon,
-    colorSecondaryDark: colorScheme['LightSalmon-Dark'],
-    colorSpinnerBack: 'var(--colorNeutralLightest)',
-    colorSpinnerFront: 'var(--colorNeutralDarker)',
-    colorText: colorScheme.SmokyBlack,
+    colorDanger: 'var(---colorSecondary-500)',
+    colorEmpty: 'var(--colorNeutral-200)',
+    colorLink: 'var(--colorPrimary-500)',
+    colorRule: 'var(--colorNeutral-300)',
+    colorSpinnerBack: 'var(--colorNeutral-200)',
+    colorSpinnerFront: 'var(--colorNeutral-700)',
+    colorText: colorScheme['SmokyBlack-500'],
+
+    'colorNeutral-100': colorScheme['Manatee-100'],
+    'colorNeutral-200': colorScheme['Manatee-200'],
+    'colorNeutral-300': colorScheme['Manatee-300'],
+    'colorNeutral-500': colorScheme['Manatee-500'],
+    'colorNeutral-700': colorScheme['Manatee-700'],
+
+    'colorPrimary-50': colorScheme['DeepAquamarine-50'],
+    'colorPrimary-100': colorScheme['DeepAquamarine-100'],
+    'colorPrimary-500': colorScheme['DeepAquamarine-500'],
+
+    'colorSecondary-500': colorScheme['LightSalmon-500'],
+
     fontAccent: `'Montserrat', ${SystemFont}`,
     fontPrimary: `'PT Serif', ${SystemFont}`,
+
     maxWidth: '53rem'
+    /* eslint-enable sort-keys */
   }
 }
 

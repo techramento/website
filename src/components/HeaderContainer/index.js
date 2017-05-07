@@ -4,7 +4,7 @@ import React from 'react'
 
 const style = {
   root: {
-    '--colorAccent': 'var(--colorPrimary)',
+    '--colorAccent': 'var(--colorPrimary-500)',
     '--colorLink': 'var(--colorText)',
     '--colorText': 'white',
     color: 'var(--colorText)',

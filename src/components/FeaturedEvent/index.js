@@ -14,7 +14,7 @@ const style = {
     textTransform: 'uppercase'
   },
   metadata: {
-    color: 'var(--colorNeutral)'
+    color: 'var(--colorNeutral-500)'
   },
   root: {
     display: 'flex',

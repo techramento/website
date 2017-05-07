@@ -22,7 +22,7 @@ const style = {
     textTransform: 'uppercase'
   },
   overlay: {
-    backgroundColor: 'var(--colorPrimary)'
+    backgroundColor: 'var(--colorPrimary-500)'
   },
   pageHeader: {
     display: 'flex',

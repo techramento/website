@@ -10,7 +10,7 @@ const style = {
     flexDirection: 'row'
   },
   day: {
-    color: 'var(--colorPrimary)',
+    color: 'var(--colorPrimary-500)',
     fontFamily: 'var(--fontAccent)',
     textTransform: 'uppercase'
   },
@@ -32,7 +32,7 @@ const style = {
     textTransform: 'uppercase'
   },
   time: {
-    color: 'var(--colorNeutral)'
+    color: 'var(--colorNeutral-500)'
   }
 }
 

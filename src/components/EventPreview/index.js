@@ -13,10 +13,10 @@ const style = {
     textAlign: 'center'
   },
   dateContainer: {
-    borderRightColor: 'var(--colorNeutral)'
+    borderRightColor: 'var(--colorNeutral-500)'
   },
   day: {
-    color: 'var(--colorPrimary)',
+    color: 'var(--colorPrimary-500)',
     fontFamily: 'var(--fontAccent)'
   },
   heading: {
@@ -27,12 +27,12 @@ const style = {
     flex: 1
   },
   month: {
-    color: 'var(--colorNeutral)',
+    color: 'var(--colorNeutral-500)',
     fontFamily: 'var(--fontAccent)',
     textTransform: 'uppercase'
   },
   root: {
-    background: 'var(--colorNeutralPureLight)',
+    background: 'var(--colorNeutral-100)',
     display: 'flex',
     flexDirection: 'row'
   },
