@@ -1,4 +1,4 @@
-import { Bit, Heading, Image, Text, Paragraph } from 'stemcell'
+import { Bit, Heading, Image, Paragraph } from 'stemcell'
 import Link from '../Link'
 import LocationLink from '../LocationLink'
 import { object, shape, string } from 'prop-types'
