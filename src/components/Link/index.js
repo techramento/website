@@ -24,13 +24,15 @@ const style = {
   }
 }
 
-const Link = ({ children, css, outline, size, ...props }, { theme }) => {
+const Link = ({ children, css, outline, size, ...props }) => {
   let LinkComponent = RouterLink
   if (isExternalLink(props.to)) {
     LinkComponent = Anchor
   }
   const linkCss = [style.root]
-  let linkProps = {}
+  let linkProps = {
+    size
+  }
   if (outline) {
     linkCss.push(style.outline)
     linkProps = {
@@ -46,10 +48,6 @@ const Link = ({ children, css, outline, size, ...props }, { theme }) => {
       {children}
     </LinkComponent>
   )
-}
-
-Link.contextTypes = {
-  theme: object
 }
 
 Link.propTypes = {
