@@ -19,3 +19,7 @@ npm start
 ```sh
 npm run build
 ```
+
+## TODO
+
+*  Adjust font size a bit smaller so as to get rid of all the longPrimer sizes

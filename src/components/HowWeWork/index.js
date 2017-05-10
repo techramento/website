@@ -9,7 +9,7 @@ import React from 'react'
 const style = {
   aside: {
     alignItems: 'center',
-    color: 'var(--colorBackground)',
+    color: 'var(--colorText)',
     display: 'flex',
     flexDirection: 'column'
   },
@@ -41,7 +41,7 @@ const HowWeWork = (props, { collection }) => {
           <Paragraph css={style.stat} size="trafalgar">
             43
           </Paragraph>
-          <Paragraph css={style.label} size="brevier">
+          <Paragraph size="brevier">
             Events
           </Paragraph>
 

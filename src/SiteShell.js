@@ -1,6 +1,7 @@
 import { CssReset, GlobalStylesheet, VerticalRhythm } from 'stemcell'
 import { node } from 'prop-types'
 import React from 'react'
+import ThemeProvider from './components/ThemeProvider'
 
 import theme from './theme'
 
@@ -16,9 +17,11 @@ const rules = {
 const SiteShell = ({ children }) => (
   <CssReset>
     <GlobalStylesheet rules={rules}/>
-    <VerticalRhythm baseline>
-      {children}
-    </VerticalRhythm>
+    <ThemeProvider>
+      <VerticalRhythm baseline={false}>
+        {children}
+      </VerticalRhythm>
+    </ThemeProvider>
   </CssReset>
 )
 

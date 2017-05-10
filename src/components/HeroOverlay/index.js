@@ -5,20 +5,23 @@ import React from 'react'
 const style = {
   overlay: (blend, blendMode, hero) => ({
     backgroundBlendMode: blend ? blendMode : null,
-    backgroundImage: `url(${hero})`,
+    backgroundImage: `url(${hero})`
+  }),
+  root: {
     backgroundPositionX: '50%',
     backgroundPositionY: '50%',
+    backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    display: 'block',
     filter: 'brightness(0.75)',
-    position: 'absolute'
-  })
+    position: 'absolute',
+    zIndex: -1
+  }
 }
 
 const HeroOverlay = ({ blend, blendMode, css, hero, ...props }) => (
   <Bit
     bottom={0}
-    css={[style.overlay(blend, blendMode, hero), css]}
+    css={[style.root, style.overlay(blend, blendMode, hero), css]}
     left={0}
     right={0}
     top={0}

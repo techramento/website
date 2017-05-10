@@ -1,31 +1,8 @@
-import { array, bool, object, oneOf, oneOfType } from 'prop-types'
-import { Bit, Heading } from 'stemcell'
+import { array, object, oneOf, oneOfType } from 'prop-types'
+import { Bit, Heading, Rule } from 'stemcell'
 import React from 'react'
 
 const style = {
-  headingAlignmentProps: {
-    center: {
-      marginLeft: 3,
-      paddingLeft: 1
-    },
-    left: {}
-  },
-  invertedRule: {
-    [false]: {
-      borderColor: 'var(--colorNeutral-500)'
-    },
-    [true]: {
-      borderColor: 'white'
-    }
-  },
-  invertedText: {
-    [false]: {
-      color: 'var(--colorAccent)'
-    },
-    [true]: {
-      color: 'white'
-    }
-  },
   root: {
     display: 'flex',
     flexDirection: 'row'
@@ -38,44 +15,39 @@ const style = {
       justifyContent: 'flex-start'
     }
   },
+  rule: {
+    backgroundColor: 'var(--colorRule)'
+  },
   text: {
-    backgroundColor: 'var(--colorBackground)',
+    color: 'var(--colorAccent)',
     fontFamily: 'var(--fontAccent)',
     textAlign: 'center',
     textTransform: 'uppercase'
-  },
-  wrapper: {
-    backgroundImage: 'linear-gradient(to bottom, transparent 50%, var(--colorRule) 50%, var(--colorRule) calc(50% + 1px), transparent 50%)',
-    backgroundRepeatY: 'no-repeat',
-    backgroundSize: 'auto 95%'
   }
 }
 
-const ComponentHeading = ({ align, css, invert, ...props }) => (
-  <Bit css={[style.root, style.rootAlignment[align]]}>
-    <Bit css={[style.wrapper]}>
-      <Heading
-        css={[style.invertedText[invert], style.text, css]}
-        inline={false}
-        level={4}
-        marginRight={3}
-        paddingRight={1}
-        {...style.headingAlignmentProps[align]}
-        {...props}
-      />
+const ComponentHeading = ({ align, css, ...props }) => {
+  let leftRule
+  const rightRule = <Rule css={style.rule} marginLeft={1} width={2}/>
+  if (align === 'center') {
+    leftRule = <Rule css={style.rule} marginRight={1} width={2}/>
+  }
+  return (
+    <Bit css={[style.root, style.rootAlignment[align]]}>
+      {leftRule}
+      <Heading css={[style.text, css]} inline={false} level={4} {...props}/>
+      {rightRule}
     </Bit>
-  </Bit>
-)
+  )
+}
 
 ComponentHeading.defaultProps = {
-  align: 'center',
-  invert: false
+  align: 'center'
 }
 
 ComponentHeading.propTypes = {
   align: oneOf(['center', 'left']),
-  css: oneOfType([array, object]),
-  invert: bool
+  css: oneOfType([array, object])
 }
 
 export default ComponentHeading

@@ -33,5 +33,17 @@ export default {
     }
   ],
   metaTitle: 'Techramento',
-  pkg
+  pkg,
+  /* eslint-disable max-len */
+  testimonials: [
+    {
+      avatar_url: '/assets/images/testimonials/avatar_oif_vet.jpeg',
+      content: `
+        It takes a surprising amount of financial support to run a community-focused technology meetup. We rely heavily on forming relationships with outside sponsors to provide us with meetup spaces, food and drinks, and marketing materials like stickers. Techramento provides us with the ability for us to draw upon a larger collective of sponsors, allowing us to focus on running a successful event.
+      `,
+      name: 'Derek Lindahl',
+      organization: 'SacJS'
+    }
+  ]
+  /* eslint-enable max-len */
 }

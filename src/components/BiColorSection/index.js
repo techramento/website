@@ -1,18 +1,18 @@
 import { Bit } from 'stemcell'
 import { array, node, object, oneOfType } from 'prop-types'
 import React from 'react'
+import ThemeProvider from '../ThemeProvider'
 
 const style = {
   aside: {
-    backgroundColor: 'var(--colorAccent)',
+    backgroundColor: 'var(--colorBackground)',
     display: 'flex',
     flexDirection: 'column',
     paddingRight: 'calc((100vw - var(--maxWidth)) / 2)',
     width: '45%'
   },
   content: {
-    '--colorBackground': 'var(--colorPrimary-50)',
-    backgroundColor: 'var(--colorPrimary-50)',
+    backgroundColor: 'var(--colorBackground)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -27,12 +27,16 @@ const style = {
 
 const BiColorSection = ({ aside, children, css, ...props }) => (
   <Bit css={[style.root, css]} {...props}>
-    <Bit css={style.content} paddingRight={3}>
-      {children}
-    </Bit>
-    <Bit css={style.aside} paddingLeft={3} paddingVertical={3}>
-      {aside}
-    </Bit>
+    <ThemeProvider theme="callout">
+      <Bit css={style.content} paddingRight={3}>
+        {children}
+      </Bit>
+    </ThemeProvider>
+    <ThemeProvider theme="invert">
+      <Bit css={style.aside} paddingLeft={3} paddingVertical={3}>
+        {aside}
+      </Bit>
+    </ThemeProvider>
   </Bit>
 )
 
