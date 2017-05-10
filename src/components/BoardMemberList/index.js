@@ -1,6 +1,6 @@
+import { arrayOf, shape, string } from 'prop-types'
 import List from '../List'
 import ListItem from '../List/ListItem'
-import { shape, string } from 'prop-types'
 import React from 'react'
 import Section from '../Section'
 
@@ -15,9 +15,9 @@ const style = {
 const BoardMemberList = (props, { metadata: { team } }) => (
   <Section {...props}>
     <List collection={team} css={style.list}>
-      {({ key, avatarUrl, name, title }) => (
-        <ListItem imgsrc={avatarUrl} key={key} rounded title={name}>
-          {title}
+      {({ avatarUrl, name, title }) => (
+        <ListItem imgsrc={avatarUrl} key={title} rounded title={name}>
+          {title} key:{title}
         </ListItem>
       )}
     </List>
@@ -26,11 +26,13 @@ const BoardMemberList = (props, { metadata: { team } }) => (
 
 BoardMemberList.contextTypes = {
   metadata: shape({
-    team: shape({
-      avatarUrl: string.isRequired,
-      name: string.isRequired,
-      title: string.isRequired
-    }).isRequired
+    team: arrayOf(
+      shape({
+        avatarUrl: string.isRequired,
+        name: string.isRequired,
+        title: string.isRequired
+      })
+    ).isRequired
   }).isRequired
 }
 

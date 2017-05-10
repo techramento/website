@@ -11,6 +11,8 @@ const styles = {
     '--colorBackground': 'white',
     '--colorDanger': 'var(---colorSecondary-500)',
     '--colorEmpty': 'var(--colorNeutral-200)',
+    '--colorIconPrimary': 'var(--colorEmpty)',
+    '--colorIconSecondary': 'var(--colorBackground)',
     '--colorLink': 'var(--colorPrimary-500)',
     '--colorRule': 'var(--colorNeutral-200)',
     '--colorSpinnerBack': 'var(--colorNeutral-200)',
@@ -20,6 +22,8 @@ const styles = {
   invert: {
     '--colorAccent': 'white',
     '--colorBackground': 'var(--colorPrimary-500)',
+    '--colorIconPrimary': 'white',
+    '--colorIconSecondary': 'var(--colorBackground)',
     '--colorLink': 'white',
     '--colorRule': 'rgba(255,255,255,0.25)',
     '--colorSpinnerBack': 'var(--colorNeutral-200)',

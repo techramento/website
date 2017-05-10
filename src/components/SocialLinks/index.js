@@ -79,8 +79,8 @@ const SocialLinks = ({
 }
 
 SocialLinks.defaultProps = {
-  primaryColor: 'var(--colorNeutral-200)',
-  secondaryColor: 'var(--colorBackground)',
+  primaryColor: 'var(--colorIconPrimary)',
+  secondaryColor: 'var(--colorIconSecondary)',
   size: 1
 }
 

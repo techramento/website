@@ -2,6 +2,20 @@
 import pkg from '../package.json'
 
 export default {
+  legal: {
+    copyright_year: new Date().getFullYear(),
+    corporate_mailing_address_1: '9633 Spring Breeze Ct.',
+    corporate_mailing_address_2: null,
+    corporate_mailing_city: 'Elk Grove',
+    corporate_mailing_postal_code: '95757',
+    corporate_mailing_state: 'CA',
+    corporate_name: 'Techramento',
+    corporate_physical_address_1: '9633 Spring Breeze Ct.',
+    corporate_physical_address_2: null,
+    corporate_physical_city: 'Elk Grove',
+    corporate_physical_postal_code: '95757',
+    corporate_physical_state: 'CA'
+  },
   mainNav: [
     {
       description: 'Check out the various organizations that make up the SacTech community.',
@@ -34,6 +48,12 @@ export default {
   ],
   metaTitle: 'Techramento',
   pkg,
+  social: {
+    facebook: 'techramento',
+    github: 'techramento',
+    twitter: pkg.twitter,
+    website: pkg.homepage
+  },
   team: [
     {
       avatarUrl: '/assets/images/team/avatar_dlindahl.jpeg',
