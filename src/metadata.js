@@ -34,6 +34,28 @@ export default {
   ],
   metaTitle: 'Techramento',
   pkg,
+  team: [
+    {
+      avatarUrl: '/assets/images/team/avatar_dlindahl.jpeg',
+      name: 'Derek Lindahl',
+      title: 'President'
+    },
+    {
+      avatarUrl: '/assets/images/team/avatar_rjulian.jpeg',
+      name: 'Richard Julian',
+      title: 'Vice President'
+    },
+    {
+      avatarUrl: '/assets/images/team/avatar_efletcher.jpeg',
+      name: 'Emma Fletcher',
+      title: 'Treasurer'
+    },
+    {
+      avatarUrl: '/assets/images/team/avatar_aroughani.png',
+      name: 'Ash Roughani',
+      title: 'Secretary'
+    }
+  ],
   /* eslint-disable max-len */
   testimonials: [
     {
