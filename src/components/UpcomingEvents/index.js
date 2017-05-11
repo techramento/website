@@ -32,7 +32,7 @@ const UpcomingEvents = ({ numberOfEvents, ...props }) => (
     >
       {(event) => <EventPreview event={event} flex={1} key={event.id}/>}
     </EventList>
-    <Bit as="footer" css={style.footer} marginTop={3}>
+    <Bit as="footer" css={style.footer} marginTop={1}>
       <Link outline to="events">
         All Events
       </Link>

@@ -59,7 +59,7 @@ const CommunityList = (props, { collection }) => {
           { logo, short_title } // eslint-disable-next-line camelcase
         ) => <ListItem imgsrc={logo} key={short_title} title={short_title}/>}
       </List>
-      <Bit as="footer" css={style.footer} marginTop={3}>
+      <Bit as="footer" css={style.footer} marginTop={1}>
         <Paragraph paddingHorizontal={1}>
           <Link outline to="/join">
             Join Us

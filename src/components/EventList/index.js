@@ -34,7 +34,7 @@ function defaultRenderFeature (event) {
 
 function defaultRenderSectionHeader (group) {
   return (
-    <Bit marginRight={1}>
+    <Bit width={3}>
       <Heading css={style.sectionHeading} level={4}>
         {group.key}
       </Heading>

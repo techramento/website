@@ -62,7 +62,7 @@ const SponsorList = (props, { collection }) => {
           />
         )}
       </List>
-      <Bit as="footer" css={style.footer} marginTop={3}>
+      <Bit as="footer" css={style.footer} marginTop={1}>
         <Text paddingHorizontal={1}>
           <Link outline to="/sponsors">
             Sponsor Us

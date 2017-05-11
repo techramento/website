@@ -59,12 +59,16 @@ const FeaturedEvent = ({ event, ...props }) => {
             </Link>
           </Heading>
         </Bit>
-        <Paragraph css={style.metadata} marginTop={1} size="longPrimer">
-          <Time dateTime={start.dateTime} format="dddd, mmmm d 'at' h:MMtt"/>
-        </Paragraph>
-        <Paragraph css={style.metadata} size="longPrimer">
-          <LocationLink location={location}/>
-        </Paragraph>
+        <Bit css={style.metadata}>
+          <Time
+            dateTime={start.dateTime}
+            format="dddd, mmmm d 'at' h:MMtt"
+            size="longPrimer"
+          />
+        </Bit>
+        <Bit css={style.metadata}>
+          <LocationLink location={location} size="longPrimer"/>
+        </Bit>
         <Paragraph marginTop={1} size="longPrimer">
           {meetup.description}
         </Paragraph>

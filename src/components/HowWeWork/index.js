@@ -1,6 +1,6 @@
 import { array } from 'prop-types'
 import BiColorSection from '../BiColorSection'
-import { Bit, Paragraph } from 'stemcell'
+import { Bit, Paragraph, Text } from 'stemcell'
 import ComponentHeading from '../ComponentHeading'
 import enhanceCollection from 'phenomic/lib/enhance-collection'
 import Link from '../Link'
@@ -38,26 +38,26 @@ const HowWeWork = (props, { collection }) => {
     <BiColorSection
       aside={
         <Bit css={style.aside} width={5}>
-          <Paragraph css={style.stat} size="trafalgar">
+          <Text block css={style.stat} size="trafalgar">
             43
-          </Paragraph>
-          <Paragraph size="brevier">
+          </Text>
+          <Text block size="brevier">
             Events
-          </Paragraph>
+          </Text>
 
-          <Paragraph css={style.stat} marginTop={1} size="trafalgar">
+          <Text block css={style.stat} marginTop={1} size="trafalgar">
             {orgs.length}
-          </Paragraph>
-          <Paragraph size="brevier">
+          </Text>
+          <Text block size="brevier">
             Organizations
-          </Paragraph>
+          </Text>
 
-          <Paragraph css={style.stat} marginTop={1} size="trafalgar">
+          <Text block css={style.stat} marginTop={1} size="trafalgar">
             3
-          </Paragraph>
-          <Paragraph size="brevier">
+          </Text>
+          <Text block size="brevier">
             Workshops
-          </Paragraph>
+          </Text>
         </Bit>
       }
       {...props}

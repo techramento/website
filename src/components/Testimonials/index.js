@@ -1,5 +1,5 @@
 import { array, shape } from 'prop-types'
-import { Bit, Image, Paragraph } from 'stemcell'
+import { Bit, Image, Text } from 'stemcell'
 import ComponentHeading from '../ComponentHeading'
 import HeroSection from '../HeroSection'
 import React from 'react'
@@ -32,12 +32,12 @@ const Testimonials = (props, { metadata: { testimonials } }) => (
       <ComponentHeading level={4}>
         Success Stories
       </ComponentHeading>
-      <Paragraph css={style.quotationMark} marginBottom={-2} size="canon">
+      <Text block css={style.quotationMark} marginBottom={-2} size="canon">
         “
-      </Paragraph>
-      <Paragraph css={style.content} marginTop={1} size="longPrimer">
+      </Text>
+      <Text block css={style.content} marginTop={1} size="longPrimer">
         {testimonials[0].content}
-      </Paragraph>
+      </Text>
       <Bit css={style.citation} marginTop={1}>
         <Image
           cover
@@ -47,17 +47,17 @@ const Testimonials = (props, { metadata: { testimonials } }) => (
           src={testimonials[0].avatar_url}
         />
         <Bit>
-          <Paragraph size="longPrimer">
+          <Text block size="longPrimer">
             {testimonials[0].name}
-          </Paragraph>
-          <Paragraph css={style.org} size="longPrimer">
+          </Text>
+          <Text block css={style.org} size="longPrimer">
             {testimonials[0].organization}
-          </Paragraph>
+          </Text>
         </Bit>
       </Bit>
-      <Paragraph css={style.quotationMark} size="canon">
+      <Text block css={style.quotationMark} size="canon">
         ”
-      </Paragraph>
+      </Text>
     </HeroSection>
   </ThemeProvider>
 )

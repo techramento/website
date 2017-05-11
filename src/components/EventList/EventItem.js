@@ -53,9 +53,9 @@ const EventItem = ({ event, ...props }) => {
         </Paragraph>
         <Bit css={style.date} marginTop={1}>
           <Text css={[style.subtitle, style.time]} size="longPrimer">
-            <Time dateTime={start.dateTime} format="h:mm a"/>
+            <Time dateTime={start.dateTime} format="h:MM tt"/>
             {' - '}
-            <Time dateTime={end.dateTime} format="h:mm a"/>
+            <Time dateTime={end.dateTime} format="h:MM tt"/>
           </Text>
           <Text css={style.location} marginHorizontal={2} size="longPrimer">
             <LocationLink location={location}/>

@@ -42,26 +42,26 @@ const WhatWeOffer = (props, { collection }) => {
     <BiColorSection
       aside={
         <Bit css={style.aside} width={5}>
-          <Paragraph css={style.stat} size="trafalgar">
+          <Text block css={style.stat} size="trafalgar">
             43
-          </Paragraph>
-          <Paragraph size="brevier">
+          </Text>
+          <Text block size="brevier">
             Events
-          </Paragraph>
+          </Text>
 
-          <Paragraph css={style.stat} marginTop={1} size="trafalgar">
+          <Text block css={style.stat} marginTop={1} size="trafalgar">
             {orgs.length}
-          </Paragraph>
-          <Paragraph size="brevier">
+          </Text>
+          <Text block size="brevier">
             Organizations
-          </Paragraph>
+          </Text>
 
-          <Paragraph css={style.stat} marginTop={1} size="trafalgar">
+          <Text block css={style.stat} marginTop={1} size="trafalgar">
             {sponsors.length}
-          </Paragraph>
-          <Paragraph size="brevier">
+          </Text>
+          <Text block size="brevier">
             Sponsors
-          </Paragraph>
+          </Text>
         </Bit>
       }
       {...props}
