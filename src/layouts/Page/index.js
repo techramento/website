@@ -1,11 +1,12 @@
-import { Bit, Heading } from 'stemcell'
-import { BodyContainer, joinUri } from 'phenomic'
+import { Bit, ComponentizeContent, Heading } from 'stemcell'
+import { joinUri } from 'phenomic'
 import { bool, element, func, node, object, shape, string } from 'prop-types'
 import HeaderContainer from '../../components/HeaderContainer'
 import Helmet from 'react-helmet'
 import HeroOverlay from '../../components/HeroOverlay'
 import Loading from '../../components/Loading'
 import React from 'react'
+import Section from '../../components/Section'
 import warning from 'warning'
 
 const style = {
@@ -127,9 +128,13 @@ const Page = (
       </HeaderContainer>
       <Bit css={style.content}>
         {header}
-        <Bit>
-          {isLoading ? <Loading/> : <BodyContainer>{body}</BodyContainer>}
-        </Bit>
+        <Section>
+          {isLoading
+            ? <Loading/>
+            : <ComponentizeContent>
+              {body || '<div/>' /* TODO: REMOVE DEFAULT */}
+            </ComponentizeContent>}
+        </Section>
         {children}
         {footer}
       </Bit>

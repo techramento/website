@@ -1,36 +1,35 @@
-import React, { PropTypes } from 'react'
-
+import { Heading } from 'stemcell'
+import { object, string } from 'prop-types'
+import React from 'react'
+import Time from '../../components/Time'
 import LatestPosts from '../../components/LatestPosts'
 import Page from '../Page'
 
-import styles from './index.css'
-
-const Post = (props) => {
-  // It's up to you to choose what to do with this layout ;)
-  const pageDate = props.head.date ? new Date(props.head.date) : null
-
-  return (
-    <Page
-      {...props}
-      header={
-        <div>
-          <header className={styles.header}>
-            {pageDate &&
-              <time key={pageDate.toISOString()}>
-                {pageDate.toDateString()}
-              </time>}
-          </header>
-        </div>
-      }
-    >
-      <hr/>
-      <LatestPosts/>
-    </Page>
-  )
+const styles = {
+  heading: {
+    color: 'var(--colorEmpty)',
+    display: 'flex',
+    justifyContent: 'center'
+  }
 }
 
+const Post = ({ __resourceUrl, __dataUrl, ...props }) => (
+  <Page
+    {...props}
+    header={
+      <Heading css={styles.heading} marginTop={1} size="brevier">
+        <Time dateTime={props.head.date} format="ddd MMM D YYYY"/>
+      </Heading>
+    }
+  >
+    <LatestPosts marginTop={4}/>
+  </Page>
+)
+
 Post.propTypes = {
-  head: PropTypes.object.isRequired
+  __dataUrl: string,
+  __resourceUrl: string,
+  head: object.isRequired
 }
 
 export default Post
