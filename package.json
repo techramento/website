@@ -45,7 +45,7 @@
     "prop-types": "^15.5.8",
     "react-fetch-component": "^2.5.1",
     "stemcell": "^1.1.2",
-    "zamora": "^1.0.0"
+    "zamora": "^1.0.1"
   },
   "eslintConfig": {
     "root": true,
