@@ -40,7 +40,7 @@ const Footer = (props, { metadata: { legal, social }, theme }) => (
       <Section css={style.section}>
         <Bit marginRight={0}>
           <Image
-            alt
+            alt=""
             css={style.logo}
             fill
             height={5}
