@@ -37,7 +37,7 @@ const style = {
 const CommunityDetailList = (props, { collection }) => {
   const orgs = enhanceCollection(collection, {
     filter: {
-      type: 'Organization'
+      class: 'Organization'
     },
     sort: 'short_name'
   })

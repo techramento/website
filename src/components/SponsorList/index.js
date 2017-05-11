@@ -28,7 +28,7 @@ const style = {
 const SponsorList = (props, { collection }) => {
   const sponsors = enhanceCollection(collection, {
     filter: {
-      type: 'Sponsor'
+      class: 'Sponsor'
     },
     sort: 'short_name'
   })

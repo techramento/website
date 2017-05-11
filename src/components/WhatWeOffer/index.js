@@ -29,13 +29,13 @@ const style = {
 const WhatWeOffer = (props, { collection }) => {
   const orgs = enhanceCollection(collection, {
     filter: {
-      type: 'Organization'
+      class: 'Organization'
     },
     sort: 'short_name'
   })
   const sponsors = enhanceCollection(collection, {
     filter: {
-      type: 'Sponsor'
+      class: 'Sponsor'
     }
   })
   return (

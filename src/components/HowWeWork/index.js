@@ -30,7 +30,7 @@ const style = {
 const HowWeWork = (props, { collection }) => {
   const orgs = enhanceCollection(collection, {
     filter: {
-      type: 'Organization'
+      class: 'Organization'
     },
     sort: 'short_name'
   })
