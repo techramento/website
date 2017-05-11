@@ -1,39 +1,39 @@
-import React, { PropTypes } from 'react'
-
+import { Bit, Paragraph } from 'stemcell'
+import { oneOfType, number, string } from 'prop-types'
 import Page from '../Page'
+import React from 'react'
 
-import styles from './index.css'
+const styles = {
+  container: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  }
+}
 
-const PageError = ({ error, errorText }) => (
-  <Page
-    head={{
-      // Hero credit: https://www.flickr.com/photos/mypubliclands/16101654539/
-      hero: 'https://farm8.staticflickr.com/7559/16101654539_bee5151340_k.jpg'
-    }}
-  >
-    <div className={styles.container}>
-      <div className={styles.oops}>{'😱 Oooops!'}</div>
-      <div className={styles.text}>
-        <p className={styles.title}>
-          <strong>{error}</strong>
-          {' '}
-          {errorText}
-        </p>
-        {error === 404 &&
-          <div>
-            {'It seems you found a broken link. '}
-            {'Sorry about that. '}
-            <br/>
-            {'Do not hesitate to report this page 😁.'}
-          </div>}
-      </div>
-    </div>
-  </Page>
-)
+const PageError = ({ error, errorText }) => {
+  const head = {
+    // Hero credit: https://www.flickr.com/photos/mypubliclands/16101654539/
+    hero: 'https://farm8.staticflickr.com/7559/16101654539_bee5151340_k.jpg',
+    title: `${error} ${errorText}`
+  }
+  return (
+    <Page head={head}>
+      <Bit css={styles.container} marginVertical={4}>
+        <Paragraph>
+          It seems you found a broken link. Sorry about that.
+          <br/>
+          Do not hesitate to report this page 😁.
+        </Paragraph>
+      </Bit>
+    </Page>
+  )
+}
 
 PageError.propTypes = {
-  error: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  errorText: PropTypes.string
+  error: oneOfType([number, string]),
+  errorText: string
 }
 
 PageError.defaultProps = {
