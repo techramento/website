@@ -61,7 +61,7 @@ const Page = (
   )
   metaTitle = [
     metaTitle,
-    (head.metaTitle || head.title).replace(/<br\/>/gi, ' ')
+    (head.metaTitle || head.title || '').replace(/<br\/>/gi, ' ')
   ].join(': ')
   let socialImage = joinUri(process.env.PHENOMIC_USER_URL, head.hero)
   if (head.hero && head.hero.match('://')) {
