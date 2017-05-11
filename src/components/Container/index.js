@@ -1,5 +1,6 @@
 import { Bit } from 'stemcell'
-import React, { PropTypes } from 'react'
+import { array, node, object } from 'prop-types'
+import React from 'react'
 
 const style = {
   root: {
@@ -9,14 +10,29 @@ const style = {
   }
 }
 
-const Container = ({ children, ...props }) => (
+const Container = ({
+  children,
+  history,
+  location,
+  params,
+  route,
+  routeParams,
+  routes,
+  ...props
+}) => (
   <Bit css={style.root} {...props}>
     {children}
   </Bit>
 )
 
 Container.propTypes = {
-  children: PropTypes.node
+  children: node,
+  history: object,
+  location: object,
+  params: object,
+  route: object,
+  routeParams: object,
+  routes: array
 }
 
 export default Container
