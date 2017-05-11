@@ -19,6 +19,7 @@
     "start": "phenomic start",
     "build": "NODE_ENV=production phenomic build",
     "pretest": "npm run lint",
+    "serve": "static dist",
     "test": "NODE_ENV=test npm run build"
   },
   "engines": {
@@ -94,6 +95,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "history": "^2.0.0",
+    "node-static": "^0.7.9",
     "npm-run-all": "^1.7.0",
     "phenomic": "^0.21.1",
     "postcss-browser-reporter": "^0.4.0",
