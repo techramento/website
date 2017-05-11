@@ -1,7 +1,7 @@
 ---
 title: Emerging Technology Advisors
 short_title: ETA
-type: Sponsor
+class: Sponsor
 logo: /assets/images/sponsors/eta.png
 social:
   github: EmergingTechnologyAdvisors

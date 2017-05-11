@@ -1,7 +1,7 @@
 ---
 title: 'BeerJS: Sacramento'
 short_title: 'BeerJS: SAC'
-type: Organization
+class: Organization
 logo: /assets/images/organizations/beerjs_sac.png
 social:
   github: beerjs/sac

@@ -1,7 +1,7 @@
 ---
 title: Tito
 short_title: Tito
-type: Sponsor
+class: Sponsor
 logo: /assets/images/sponsors/tito.svg
 social:
   github: teamtito
