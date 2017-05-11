@@ -5,6 +5,9 @@ import React from 'react'
 
 // TODO: Move to stemcell
 const Time = ({ color, dateTime, format, ...props }) => {
+  if (!dateTime) {
+    return null
+  }
   const date = moment(dateTime)
   return (
     <Text as="time" dateTime={date.toISOString()} {...props}>
