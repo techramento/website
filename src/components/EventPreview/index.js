@@ -1,7 +1,6 @@
-import { Bit, Heading, Paragraph, Text } from 'stemcell'
+import { Bit, Heading, Paragraph, Text, Time } from 'stemcell'
 import Link from '../Link'
 import LocationLink from '../LocationLink'
-import Time from '../Time'
 import React from 'react'
 import { object, shape, string } from 'prop-types'
 
@@ -17,6 +16,7 @@ const style = {
   },
   day: {
     color: 'var(--colorPrimary-500)',
+    display: 'block',
     fontFamily: 'var(--fontAccent)'
   },
   heading: {
@@ -28,6 +28,7 @@ const style = {
   },
   month: {
     color: 'var(--colorNeutral-500)',
+    display: 'block',
     fontFamily: 'var(--fontAccent)',
     textTransform: 'uppercase'
   },
@@ -52,24 +53,22 @@ const EventPreview = ({
       paddingLeft={1}
       paddingRight={2}
     >
-      <Paragraph css={style.date}>
+      <Bit css={style.date}>
         <Time
           css={style.day}
           dateTime={start.dateTime}
-          format="D"
-          inline={false}
+          format="d"
           size="trafalgar"
         />
-      </Paragraph>
-      <Paragraph css={style.date}>
+      </Bit>
+      <Bit css={style.date}>
         <Time
           css={style.month}
           dateTime={start.dateTime}
-          format="MMM"
-          inline={false}
+          format="mmm"
           size="longPrimer"
         />
-      </Paragraph>
+      </Bit>
     </Bit>
     <Bit css={style.content} marginHorizontal={2}>
       <Heading css={style.heading} level={6}>
@@ -79,9 +78,9 @@ const EventPreview = ({
       </Heading>
       <Paragraph css={style.timeContainer} marginTop={1}>
         <Text css={style.meta} size="longPrimer">
-          <Time dateTime={start.dateTime} format="h:mma"/>
-          {'- '}
-          <Time dateTime={end.dateTime} format="h:mma"/>
+          <Time dateTime={start.dateTime} format="h:MMtt"/>
+          {' - '}
+          <Time dateTime={end.dateTime} format="h:MMtt"/>
         </Text>
         <Text css={style.link} marginHorizontal={2} size="longPrimer">
           <LocationLink location={location}/>

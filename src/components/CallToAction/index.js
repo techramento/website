@@ -28,6 +28,9 @@ const style = {
 
 const CallToAction = ({ children, text, ...props }) => {
   const buttons = Children.map(children, (child) => {
+    if (typeof child !== 'object') {
+      return child
+    }
     const { css, ...childProps } = child.props
     return cloneElement(child, {
       ...childProps,

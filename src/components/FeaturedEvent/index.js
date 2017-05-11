@@ -1,8 +1,7 @@
-import { Bit, Heading, Image, Paragraph } from 'stemcell'
+import { Bit, Heading, Image, Paragraph, Time } from 'stemcell'
 import Link from '../Link'
 import LocationLink from '../LocationLink'
 import { object, shape, string } from 'prop-types'
-import Time from '../Time'
 import React from 'react'
 
 const style = {
@@ -61,7 +60,7 @@ const FeaturedEvent = ({ event, ...props }) => {
           </Heading>
         </Bit>
         <Paragraph css={style.metadata} marginTop={1} size="longPrimer">
-          <Time dateTime={start.dateTime} format="dddd, MMMM D [at] h:mma"/>
+          <Time dateTime={start.dateTime} format="dddd, mmmm d 'at' h:MMtt"/>
         </Paragraph>
         <Paragraph css={style.metadata} size="longPrimer">
           <LocationLink location={location}/>

@@ -19,7 +19,7 @@ const head = {
 function callToAction () {
   return (
     <CallToAction text={CtaText}>
-      <Link outline to="/about">
+      <Link marginRight={1} outline to="/about">
         Apply Here
       </Link>
       <Link outline to="/mission">

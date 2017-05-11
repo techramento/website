@@ -1,7 +1,6 @@
-import { Heading } from 'stemcell'
+import { Heading, Time } from 'stemcell'
 import { object, string } from 'prop-types'
 import React from 'react'
-import Time from '../../components/Time'
 import LatestPosts from '../../components/LatestPosts'
 import Page from '../Page'
 
@@ -18,7 +17,7 @@ const Post = ({ __resourceUrl, __dataUrl, ...props }) => (
     {...props}
     header={
       <Heading css={styles.heading} marginTop={1} size="brevier">
-        <Time dateTime={props.head.date} format="ddd MMM D YYYY"/>
+        <Time dateTime={props.head.date} format="ddd mmm d yyyy"/>
       </Heading>
     }
   >

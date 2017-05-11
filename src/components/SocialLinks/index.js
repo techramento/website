@@ -54,8 +54,6 @@ const SocialLinks = ({
   ...props
 }) => {
   const networkNames = Object.keys(networks)
-  const height = size // TODO: Deprecate once stemcell contains this
-  const width = size
   return (
     <List collection={networkNames} css={style.list} {...props}>
       {(networkName) => {
@@ -65,10 +63,9 @@ const SocialLinks = ({
             <Link inline={false} to={URLS[networkName](networks[networkName])}>
               <Icon
                 css={style.icon}
-                height={height}
                 primaryColor={primaryColor}
                 secondaryColor={secondaryColor}
-                width={width}
+                size={size}
               />
             </Link>
           </Bit>

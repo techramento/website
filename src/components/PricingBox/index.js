@@ -17,7 +17,7 @@ const style = {
     textAlign: 'center'
   },
   link: {
-    display: 'block' // TODO: Deprecate this once `block` exists in Text
+    display: 'block'
   },
   root: {
     color: 'var(--colorAccent)',

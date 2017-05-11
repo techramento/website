@@ -132,7 +132,7 @@ const Page = (
           {isLoading
             ? <Loading/>
             : <ComponentizeContent>
-              {body || '<div/>' /* TODO: REMOVE DEFAULT */}
+              {body}
             </ComponentizeContent>}
         </Section>
         {children}

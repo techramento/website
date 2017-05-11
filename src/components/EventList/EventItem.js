@@ -1,8 +1,7 @@
-import { Bit, Heading, Paragraph, Text } from 'stemcell'
+import { Bit, Heading, Paragraph, Text, Time } from 'stemcell'
 import Link from '../Link'
 import LocationLink from '../LocationLink'
 import { object } from 'prop-types'
-import Time from '../Time'
 import React from 'react'
 
 const style = {
@@ -55,7 +54,7 @@ const EventItem = ({ event, ...props }) => {
         <Bit css={style.date} marginTop={1}>
           <Text css={[style.subtitle, style.time]} size="longPrimer">
             <Time dateTime={start.dateTime} format="h:mm a"/>
-            {'- '}
+            {' - '}
             <Time dateTime={end.dateTime} format="h:mm a"/>
           </Text>
           <Text css={style.location} marginHorizontal={2} size="longPrimer">

@@ -1,4 +1,4 @@
-import { array, node, number, object, oneOfType, string } from 'prop-types'
+import { array, node, object, oneOfType, string } from 'prop-types'
 import { Bit } from 'stemcell'
 import { css as glamor } from 'glamor'
 import React, { Children, cloneElement } from 'react'
@@ -17,14 +17,7 @@ const style = {
 }
 
 /* eslint-disable max-len */
-const SvgIcon = ({
-  css,
-  primaryColor,
-  secondaryColor,
-  size,
-  viewBox,
-  ...props
-}) => {
+const SvgIcon = ({ css, primaryColor, secondaryColor, viewBox, ...props }) => {
   const fills = [primaryColor, secondaryColor]
   const children = Children.map(props.children, (child, i) =>
     cloneElement(child, {
@@ -51,7 +44,6 @@ SvgIcon.propTypes = {
   css: oneOfType([array, object]),
   primaryColor: string,
   secondaryColor: string,
-  size: number,
   viewBox: string
 }
 
