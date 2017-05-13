@@ -17,7 +17,7 @@ const BoardMemberList = (props, { metadata: { team } }) => (
     <List collection={team} css={style.list}>
       {({ avatarUrl, name, title }) => (
         <ListItem imgsrc={avatarUrl} key={title} rounded title={name}>
-          {title} key:{title}
+          {title}
         </ListItem>
       )}
     </List>

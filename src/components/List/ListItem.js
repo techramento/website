@@ -1,5 +1,5 @@
 import { array, bool, node, object, oneOfType, string } from 'prop-types'
-import { Bit, Heading, Image, Paragraph } from 'stemcell'
+import { Bit, Heading, Image, Text } from 'stemcell'
 import React from 'react'
 
 const style = {
@@ -23,9 +23,9 @@ const ListItem = ({ children, css, imgsrc, rounded, title, ...props }) => (
     <Heading css={style.title} level={6} marginTop={1}>
       {title}
     </Heading>
-    <Paragraph css={style.text} size="longPrimer">
+    <Text block css={style.text} size="longPrimer">
       {children}
-    </Paragraph>
+    </Text>
   </Bit>
 )
 
