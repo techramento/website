@@ -2,7 +2,7 @@
 title: 'BeerJS: Sacramento'
 short_title: 'BeerJS: SAC'
 class: Organization
-logo: /assets/images/organizations/beerjs_sac.png
+logo: /assets/images/organizations/beerjs_sac/beerjs_sac.png
 social:
   github: beerjs/sac
   meetup: The-Sacramento-Javascript-Meetup

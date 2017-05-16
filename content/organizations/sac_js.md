@@ -2,7 +2,7 @@
 title: The Sacramento JavaScript Meetup
 short_title: SacJS
 class: Organization
-logo: /assets/images/organizations/sacjs.jpeg
+logo: /assets/images/organizations/sac_js/sac_js.jpeg
 social:
   email: derek@jsconf.us
   facebook: sac.javascript
