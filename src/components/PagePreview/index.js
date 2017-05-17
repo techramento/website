@@ -54,9 +54,9 @@ const PagePreview = ({ __url, date, description, hero, title }) => {
             </Link>
           </Heading>
         </Bit>
-        <Paragraph css={style.metadata} size="brevier">
+        <Text block css={style.metadata} size="brevier">
           {pageDateNode}
-        </Paragraph>
+        </Text>
         <Paragraph size="longPrimer">
           {description}
         </Paragraph>
