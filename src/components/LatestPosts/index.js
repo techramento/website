@@ -1,7 +1,6 @@
 import { array, number } from 'prop-types'
 import { Bit } from 'stemcell'
 import ComponentHeading from '../ComponentHeading'
-import enhanceCollection from 'phenomic/lib/enhance-collection'
 import Link from '../Link'
 import List from '../List'
 import PagePreview from '../PagePreview'
@@ -16,14 +15,8 @@ const style = {
   }
 }
 
-const LatestPosts = ({ numberOfPosts, ...props }, { collection }) => {
-  const latestPosts = enhanceCollection(collection, {
-    filter: {
-      layout: 'Post'
-    },
-    reverse: true,
-    sort: 'date'
-  }).slice(0, numberOfPosts)
+const LatestPosts = ({ numberOfPosts, ...props }, { posts }) => {
+  const latestPosts = posts.slice(0, numberOfPosts)
   return (
     <Section {...props}>
       <ComponentHeading align="center">
@@ -50,7 +43,7 @@ LatestPosts.propTypes = {
 }
 
 LatestPosts.contextTypes = {
-  collection: array.isRequired
+  posts: array.isRequired
 }
 
 export default LatestPosts

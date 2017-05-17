@@ -1,6 +1,7 @@
+import { array, node } from 'prop-types'
 import { CssReset, GlobalStylesheet, VerticalRhythm } from 'stemcell'
-import { node } from 'prop-types'
-import React from 'react'
+import enhanceCollection from 'phenomic/lib/enhance-collection'
+import React, { Component } from 'react'
 import ThemeProvider from './components/ThemeProvider'
 
 import theme from './theme'
@@ -14,19 +15,54 @@ const rules = {
   }
 }
 
-const SiteShell = ({ children }) => (
-  <CssReset>
-    <GlobalStylesheet rules={rules}/>
-    <ThemeProvider>
-      <VerticalRhythm baseline={false}>
-        {children}
-      </VerticalRhythm>
-    </ThemeProvider>
-  </CssReset>
-)
-
-SiteShell.propTypes = {
-  children: node
+export default class SiteShell extends Component {
+  static childContextTypes = {
+    organizations: array,
+    posts: array,
+    sponsors: array
+  }
+  static contextTypes = {
+    collection: array
+  }
+  static propTypes = {
+    children: node
+  }
+  getChildContext () {
+    const organizations = enhanceCollection(this.context.collection, {
+      filter: {
+        class: 'Organization'
+      },
+      sort: 'short_name'
+    })
+    const posts = enhanceCollection(this.context.collection, {
+      filter: {
+        layout: 'Post'
+      },
+      reverse: true,
+      sort: 'date'
+    })
+    const sponsors = enhanceCollection(this.context.collection, {
+      filter: {
+        class: 'Sponsor'
+      },
+      sort: 'short_name'
+    })
+    return {
+      organizations,
+      posts,
+      sponsors
+    }
+  }
+  render () {
+    return (
+      <CssReset>
+        <GlobalStylesheet rules={rules}/>
+        <ThemeProvider>
+          <VerticalRhythm baseline={false}>
+            {this.props.children}
+          </VerticalRhythm>
+        </ThemeProvider>
+      </CssReset>
+    )
+  }
 }
-
-export default SiteShell
