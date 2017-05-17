@@ -9,12 +9,6 @@ const style = {
     alignSelf: 'center',
     flex: 1
   },
-  image: {
-    maxHeight: '100%',
-    maxWidth: '100%',
-    minHeight: '100%',
-    minWidth: '100%'
-  },
   imageContainer: {
     flexBasis: 'auto',
     flexShrink: 0
@@ -31,12 +25,21 @@ const VerticalHeroContent = ({
   css,
   height,
   src,
+  srcHeight,
+  srcWidth,
   title,
   ...props
 }) => (
   <Section css={[style.root, css]} {...props}>
     <Bit css={style.imageContainer} height={height} paddingRight={1} width={20}>
-      <Image cover css={style.image} size={1} src={src}/>
+      <Image
+        cover
+        fillParent
+        size={1}
+        src={src}
+        srcHeight={srcHeight}
+        srcWidth={srcWidth}
+      />
     </Bit>
     <Bit css={style.content}>
       <ComponentHeading align="left">
@@ -52,6 +55,8 @@ VerticalHeroContent.propTypes = {
   css: oneOfType([array, object]),
   height: number,
   src: string,
+  srcHeight: number.isRequired,
+  srcWidth: number.isRequired,
   title: string
 }
 

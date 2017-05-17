@@ -1,17 +1,11 @@
 import { Bit, Heading, Image, Paragraph, Text } from 'stemcell'
 import Link from '../Link'
 import React from 'react'
-import { string } from 'prop-types'
+import { number, shape, string } from 'prop-types'
 
 const style = {
   headingContainer: {
     flexGrow: 1
-  },
-  image: {
-    maxHeight: '100%',
-    maxWidth: '100%',
-    minHeight: '100%',
-    minWidth: '100%'
   },
   imageContainer: {
     flexBasis: 'auto',
@@ -43,7 +37,14 @@ const PagePreview = ({ __url, date, description, hero, title }) => {
   return (
     <Bit css={style.root} marginTop={2}>
       <Bit css={style.imageContainer} height={10} paddingRight={1} width={20}>
-        <Image cover css={style.image} size={1} src={hero}/>
+        <Image
+          cover
+          fillParent
+          height={hero.srcHeight}
+          size={1}
+          src={hero.src}
+          srcWidth={hero.width}
+        />
       </Bit>
       <Bit css={style.headingContainer}>
         <Bit>
@@ -77,7 +78,11 @@ PagePreview.propTypes = {
   __url: string.isRequired,
   date: string,
   description: string,
-  hero: string,
+  hero: shape({
+    height: number.isRequired,
+    src: string.isRequired,
+    width: number.isRequired
+  }),
   title: string.isRequired
 }
 

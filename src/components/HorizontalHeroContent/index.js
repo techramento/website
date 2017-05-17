@@ -12,22 +12,30 @@ const style = {
   heading: {
     flex: 1
   },
-  image: {
-    maxHeight: '100%',
-    maxWidth: '100%',
-    minHeight: '100%',
-    minWidth: '100%'
-  },
   imageContainer: {
     flexBasis: 'auto',
     flexShrink: 0
   }
 }
 
-const HorizontalHeroContent = ({ children, height, src, title, ...props }) => (
+const HorizontalHeroContent = ({
+  children,
+  height,
+  src,
+  srcHeight,
+  srcWidth,
+  title,
+  ...props
+}) => (
   <Section {...props}>
     <Bit css={style.imageContainer} height={height} marginRight={1}>
-      <Image cover css={style.image} size={1} src={src}/>
+      <Image
+        cover
+        fillParent
+        src={src}
+        srcHeight={srcHeight}
+        srcWidth={srcWidth}
+      />
     </Bit>
     <Bit css={style.content} marginTop={1}>
       <Bit css={style.heading}>
@@ -46,6 +54,8 @@ HorizontalHeroContent.propTypes = {
   children: node,
   height: number,
   src: string,
+  srcHeight: number.isRequired,
+  srcWidth: number.isRequired,
   title: string
 }
 

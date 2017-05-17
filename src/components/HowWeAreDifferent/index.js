@@ -6,6 +6,8 @@ const HowWeAreDifferent = (props) => (
   <VerticalHeroContent
     height={30}
     src="https://static.pexels.com/photos/30342/pexels-photo-30342.jpg"
+    srcHeight={2779}
+    srcWidth={4208}
     title="How We Are Different"
     {...props}
   >
