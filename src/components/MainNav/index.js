@@ -3,8 +3,14 @@ import { Bit } from 'stemcell'
 import Link from '../Link'
 import React from 'react'
 
+const ActiveClassName = 'main-nav-active-link'
+
 const style = {
   link: {
+    [`&.${ActiveClassName}`]: {
+      borderBottomColor: 'var(--colorLink)',
+      boxShadow: 'inset 0 -2px 0 0 var(--colorLink)'
+    },
     ':hover': {
       borderColor: 'initial'
     },
@@ -27,6 +33,7 @@ const style = {
 function componentize (pageNav) {
   return (
     <Link
+      activeClassName={ActiveClassName}
       borderBottomWidth={2}
       css={style.link}
       inline={false}
