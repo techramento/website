@@ -10,6 +10,7 @@ import {
 } from 'prop-types'
 import { Bit } from 'stemcell'
 import emptyFn from 'empty/function'
+import { extractFeatureableEvent } from '../../util/eventTools'
 import List from '../List'
 import React from 'react'
 
@@ -24,6 +25,7 @@ const SectionList = ({
   emptyMessage,
   featureFirst,
   featureFirstPerSection,
+  isFeatureable,
   limit,
   limitPerSection,
   renderFeature,
@@ -34,8 +36,12 @@ const SectionList = ({
 }) => {
   let featuredEvent = null
   if (featureFirst) {
-    featuredEvent = renderFeature(sections[0].data[0])
-    sections[0].data = sections[0].data.slice(1, sections[0].data.length)
+    let remainingSectionData = []
+    ;[featuredEvent, remainingSectionData] = extractFeatureableEvent(
+      sections[0].data,
+      isFeatureable
+    )
+    sections[0].data = remainingSectionData
     // If a section is now empty, purge it
     if (!sections[0].data.length) {
       sections = sections.slice(1, sections.length)
@@ -53,6 +59,7 @@ const SectionList = ({
           css={style.list}
           emptyMessage={emptyMessage}
           featureFirst={featureFirstPerSection}
+          isFeatureable={isFeatureable}
           limit={limitPerSection}
           renderFeature={renderFeature}
         >
@@ -64,7 +71,7 @@ const SectionList = ({
   }, [])
   return (
     <Bit>
-      {featuredEvent}
+      {renderFeature(featuredEvent)}
       {blocks}
     </Bit>
   )
@@ -80,6 +87,7 @@ SectionList.propTypes = {
   emptyMessage: string,
   featureFirst: bool,
   featureFirstPerSection: bool,
+  isFeatureable: func,
   limit: number,
   limitPerSection: number,
   renderFeature: func,

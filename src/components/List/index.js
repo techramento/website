@@ -10,6 +10,7 @@ import {
 } from 'prop-types'
 import { Bit, Paragraph } from 'stemcell'
 import emptyAry from 'empty/array'
+import { extractFeatureableEvent } from '../../util/eventTools'
 import React, { isValidElement } from 'react'
 
 const style = {
@@ -29,8 +30,9 @@ const List = ({
   css,
   emptyMessage,
   featureFirst,
-  renderFeature,
+  isFeatureable,
   limit,
+  renderFeature,
   ...props
 }) => {
   let items = emptyMessage
@@ -38,8 +40,7 @@ const List = ({
   if (collection.length) {
     items = collection.slice(0, limit || collection.length)
     if (featureFirst) {
-      featuredEvent = renderFeature(items[0])
-      items = items.slice(1, items.length)
+      [featuredEvent, items] = extractFeatureableEvent(items, isFeatureable)
     }
     items = items.map(children)
   } else if (!isValidElement(emptyMessage)) {
@@ -63,6 +64,7 @@ List.propTypes = {
   css: oneOfType([array, object]),
   emptyMessage: oneOfType([node, string]),
   featureFirst: bool,
+  isFeatureable: func,
   limit: number,
   renderFeature: func
 }

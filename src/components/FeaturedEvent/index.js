@@ -1,4 +1,5 @@
-import { Bit, Heading, Image, Paragraph, Time } from 'stemcell'
+import { Bit, Heading, Paragraph, Time } from 'stemcell'
+import EventThumbnail from './EventThumbnail'
 import Link from '../Link'
 import LocationLink from '../LocationLink'
 import { object, shape, string } from 'prop-types'
@@ -19,12 +20,6 @@ const style = {
     display: 'flex',
     flexDirection: 'row'
   },
-  thumbnail: {
-    maxHeight: '100%',
-    maxWidth: '100%',
-    minHeight: '100%',
-    minWidth: '100%'
-  },
   thumbnailContainer: {
     flexBasis: 'auto',
     flexShrink: 0
@@ -44,11 +39,9 @@ const FeaturedEvent = ({ event, ...props }) => {
         paddingRight={1}
         width={18}
       >
-        <Image
-          cover
-          css={style.thumbnail}
-          size={1}
-          src="https://static.pexels.com/photos/30342/pexels-photo-30342.jpg"
+        <EventThumbnail
+          dateKey={start.dateTime}
+          path={`/assets/images/organizations/${meetup.short_name}`}
         />
       </Bit>
       <Bit css={style.container}>

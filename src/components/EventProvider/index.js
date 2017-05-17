@@ -1,4 +1,4 @@
-import { func, object } from 'prop-types'
+import { array, func, object } from 'prop-types'
 import emptyObj from 'empty/object'
 import Fetch from '../Fetch'
 import { groupBy as _groupBy, reduce } from 'lodash-es'
@@ -17,9 +17,19 @@ function sectionCollection (set, data, key) {
   return set
 }
 
-const EventProvider = ({ children, groupBy, options }) => (
+function mergeWithOrgs (events, organizations) {
+  return events.map((event) => {
+    const organization = organizations.find((o) => event.meetup.short_name)
+    return Object.assign({}, event, {
+      organization
+    })
+  })
+}
+
+const EventProvider = ({ children, groupBy, options }, { organizations }) => (
   <Fetch options={{ ...DefaultOptions, options }} url={CALENDAR_URL}>
     {(events) => {
+      events = mergeWithOrgs(events, organizations)
       if (groupBy) {
         events = reduce(_groupBy(events, groupBy), sectionCollection, [])
       }
@@ -27,6 +37,10 @@ const EventProvider = ({ children, groupBy, options }) => (
     }}
   </Fetch>
 )
+
+EventProvider.contextTypes = {
+  organizations: array
+}
 
 EventProvider.defaultProps = {
   options: emptyObj

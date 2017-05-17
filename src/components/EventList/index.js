@@ -53,6 +53,7 @@ export default class EventList extends Component {
     children: func,
     featureFirst: bool,
     featureFirstPerSection: bool,
+    isFeatureable: func,
     limit: number,
     limitPerSection: number,
     renderFeature: func,
@@ -63,6 +64,7 @@ export default class EventList extends Component {
       children,
       featureFirst,
       featureFirstPerSection,
+      isFeatureable,
       limit,
       limitPerSection,
       renderFeature,
@@ -78,6 +80,7 @@ export default class EventList extends Component {
               emptyMessage="No events scheduled"
               featureFirst={featureFirst}
               featureFirstPerSection={featureFirstPerSection}
+              isFeatureable={isFeatureable}
               limit={limit}
               limitPerSection={limitPerSection}
               renderFeature={renderFeature}

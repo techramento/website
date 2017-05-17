@@ -2,7 +2,7 @@
 title: Code 4 Sacramento
 short_title: Code4Sac
 class: Organization
-logo: /assets/images/organizations/code4sac/code4sac.png
+logo: /assets/images/organizations/Code4Sac/code4sac.png
 social:
   github: code4sac
   meetup: Code4Sac

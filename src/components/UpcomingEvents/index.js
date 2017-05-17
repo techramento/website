@@ -19,6 +19,10 @@ const style = {
   }
 }
 
+function isFeatureable (event) {
+  return Boolean(event.organization)
+}
+
 const UpcomingEvents = ({ numberOfEvents, ...props }) => (
   <Section {...props}>
     <ComponentHeading>
@@ -27,6 +31,7 @@ const UpcomingEvents = ({ numberOfEvents, ...props }) => (
     <EventList
       css={style.list}
       featureFirst
+      isFeatureable={isFeatureable}
       limit={numberOfEvents}
       renderSectionHeader={emptyFn}
     >
