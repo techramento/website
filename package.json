@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/techramento/website/issues"
   },
-  "homepage": "http://techramento.org",
+  "homepage": "http://scientist-gas-63640.netlify.com/",
   "twitter": "techramento",
   "scripts": {
     "lint:js": "prettier-eslint --write \"src/**/*.js\" && eslint --ignore-path .gitignore --fix .",
