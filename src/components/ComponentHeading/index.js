@@ -1,4 +1,4 @@
-import { array, object, oneOf, oneOfType } from 'prop-types'
+import { array, object, oneOf, oneOfType, string } from 'prop-types'
 import { Bit, Heading, Rule } from 'stemcell'
 import React from 'react'
 
@@ -26,7 +26,11 @@ const style = {
   }
 }
 
-const ComponentHeading = ({ align, css, ...props }) => {
+function toAnchorText (children) {
+  return String(children).toLowerCase().split(' ').join('-')
+}
+
+const ComponentHeading = ({ align, children, css, ...props }) => {
   let leftRule
   const rightRule = <Rule css={style.rule} marginLeft={1} width={2}/>
   if (align === 'center') {
@@ -35,7 +39,15 @@ const ComponentHeading = ({ align, css, ...props }) => {
   return (
     <Bit css={[style.root, style.rootAlignment[align]]}>
       {leftRule}
-      <Heading css={[style.text, css]} inline={false} level={4} {...props}/>
+      <Heading
+        css={[style.text, css]}
+        id={toAnchorText(children)}
+        inline={false}
+        level={4}
+        {...props}
+      >
+        {children}
+      </Heading>
       {rightRule}
     </Bit>
   )
@@ -47,6 +59,7 @@ ComponentHeading.defaultProps = {
 
 ComponentHeading.propTypes = {
   align: oneOf(['center', 'left']),
+  children: string,
   css: oneOfType([array, object])
 }
 
