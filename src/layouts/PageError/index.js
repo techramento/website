@@ -15,7 +15,9 @@ const styles = {
 const PageError = ({ error, errorText }) => {
   const head = {
     // Hero credit: https://www.flickr.com/photos/mypubliclands/16101654539/
-    hero: 'https://farm8.staticflickr.com/7559/16101654539_bee5151340_k.jpg',
+    hero: {
+      src: 'https://farm8.staticflickr.com/7559/16101654539_bee5151340_k.jpg'
+    },
     title: `${error} ${errorText}`
   }
   return (

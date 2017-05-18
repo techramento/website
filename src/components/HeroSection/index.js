@@ -1,4 +1,4 @@
-import { array, node, object, oneOfType, string } from 'prop-types'
+import { array, node, object, oneOfType, shape, string } from 'prop-types'
 import { Bit } from 'stemcell'
 import HeroOverlay from '../HeroOverlay'
 import React from 'react'
@@ -24,14 +24,16 @@ const HeroSection = ({ children, css, hero, ...props }) => (
     <Section css={style.section}>
       {children}
     </Section>
-    <HeroOverlay css={style.overlay} hero={hero}/>
+    <HeroOverlay css={style.overlay} src={hero.src}/>
   </Bit>
 )
 
 HeroSection.propTypes = {
   children: node,
   css: oneOfType([array, object]),
-  hero: string
+  hero: shape({
+    src: string.isRequired
+  })
 }
 
 export default HeroSection

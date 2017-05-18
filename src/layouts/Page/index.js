@@ -56,18 +56,20 @@ const Page = (
   },
   { metadata: { pkg, metaTitle } }
 ) => {
-  warning(
-    typeof head.title === 'string',
-    `Your page '${__filename}' needs a title`
-  )
+  const { hero, title } = head
+  warning(typeof title === 'string', `Your page '${__filename}' needs a title`)
   metaTitle = [
     metaTitle,
-    (head.metaTitle || head.title || '').replace(/<br\/>/gi, ' ')
+    (head.metaTitle || title || '').replace(/<br\/>/gi, ' ')
   ].join(': ')
-  let socialImage = joinUri(process.env.PHENOMIC_USER_URL, head.hero)
-  if (head.hero && head.hero.match('://')) {
-    socialImage = head.hero
+  let heroImgSrc
+  if (hero && hero.src) {
+    heroImgSrc = joinUri(process.env.PHENOMIC_USER_URL, hero.src)
+    if (hero.src.match('://')) {
+      heroImgSrc = hero.src
+    }
   }
+
   const meta = [
     // TODO: Move all of this to a component
     {
@@ -83,7 +85,7 @@ const Page = (
       property: 'og:url'
     },
     {
-      content: socialImage,
+      content: heroImgSrc,
       property: 'og:image'
     },
     {
@@ -107,7 +109,7 @@ const Page = (
       name: 'twitter:description'
     },
     {
-      content: socialImage,
+      content: heroImgSrc,
       name: 'twitter:image'
     },
     {
@@ -122,7 +124,7 @@ const Page = (
         <HeroOverlay
           blend={colorOverlay}
           css={style.overlay}
-          hero={head.hero}
+          src={heroImgSrc}
         />
         {callToAction(head)}
       </HeaderContainer>
@@ -155,7 +157,11 @@ Page.propTypes = {
   children: node,
   colorOverlay: bool,
   footer: element,
-  head: object.isRequired,
+  head: shape({
+    hero: shape({
+      src: string.isRequired
+    })
+  }).isRequired,
   header: element,
   isLoading: bool
 }

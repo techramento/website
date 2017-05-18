@@ -71,7 +71,9 @@ const PagePreview = ({ __url, date, description, hero, title }) => {
 }
 
 PagePreview.defaultProps = {
-  hero: '/assets/images/news-hero-fallback.jpg'
+  hero: {
+    src: '/assets/images/news-hero-fallback.jpg'
+  }
 }
 
 PagePreview.propTypes = {

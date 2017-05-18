@@ -16,7 +16,7 @@ const FeaturedSitePages = (props, { metadata: { mainNav } }) => (
   <Section {...props}>
     <List collection={mainNav} css={style.list}>
       {({ description, hero, path, title }) => (
-        <ListItem imgsrc={hero} key={path} rounded title={title}>
+        <ListItem imgsrc={hero.src} key={path} rounded title={title}>
           {description}
         </ListItem>
       )}

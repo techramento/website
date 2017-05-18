@@ -3,9 +3,9 @@ import { Bit } from 'stemcell'
 import React from 'react'
 
 const style = {
-  overlay: (blend, blendMode, hero) => ({
+  overlay: (blend, blendMode, src) => ({
     backgroundBlendMode: blend ? blendMode : null,
-    backgroundImage: `url(${hero})`
+    backgroundImage: `url(${src})`
   }),
   root: {
     backgroundPositionX: '50%',
@@ -18,10 +18,10 @@ const style = {
   }
 }
 
-const HeroOverlay = ({ blend, blendMode, css, hero, ...props }) => (
+const HeroOverlay = ({ blend, blendMode, css, src, ...props }) => (
   <Bit
     bottom={0}
-    css={[style.root, style.overlay(blend, blendMode, hero), css]}
+    css={[style.root, style.overlay(blend, blendMode, src), css]}
     left={0}
     right={0}
     top={0}
@@ -38,7 +38,7 @@ HeroOverlay.propTypes = {
   blend: bool,
   blendMode: string,
   css: oneOfType([array, object]),
-  hero: string
+  src: string
 }
 
 export default HeroOverlay

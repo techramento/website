@@ -12,7 +12,9 @@ import UpcomingEvents from '../components/UpcomingEvents'
 const CtaText = 'Build your<br/>community with<br/>a meetup grant'
 
 const head = {
-  hero: 'https://farm4.staticflickr.com/3949/15589950511_3675b15e59_k.jpg',
+  hero: {
+    src: 'https://farm4.staticflickr.com/3949/15589950511_3675b15e59_k.jpg'
+  },
   title: `Growing the technology community Sacramento deserves`
 }
 

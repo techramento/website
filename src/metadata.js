@@ -19,28 +19,36 @@ export default {
   mainNav: [
     {
       description: 'Check out the various organizations that make up the SacTech community.',
-      hero: '/assets/images/community/hero@2x.jpg',
+      hero: {
+        src: '/assets/images/community/hero@2x.jpg'
+      },
       label: 'Community',
       path: '/community',
       title: 'Our Community'
     },
     {
       description: 'Discover the many events that we host and facilitate in the Sacramento area.',
-      hero: '/assets/images/events/hero@2x.jpg',
+      hero: {
+        src: '/assets/images/events/hero@2x.jpg'
+      },
       label: 'Events',
       path: '/events',
       title: 'Events'
     },
     {
       description: 'Learn how to join our ranks as stewards of the Sacramento Tech Community.',
-      hero: '/assets/images/join/hero@2x.jpg',
+      hero: {
+        src: '/assets/images/join/hero@2x.jpg'
+      },
       label: 'Join',
       path: '/join',
       title: 'Join Us'
     },
     {
       description: `See how our community leaders are mentoring and training Sacramento's tech scene.`,
-      hero: '/assets/images/mission/hero@2x.jpg',
+      hero: {
+        src: '/assets/images/mission/hero@2x.jpg'
+      },
       label: 'Mission',
       path: '/mission',
       title: 'Our Mission'
