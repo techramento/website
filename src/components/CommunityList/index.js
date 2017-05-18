@@ -58,7 +58,7 @@ const CommunityList = (props, { organizations }) => (
         </Link>
       </Paragraph>
       <Paragraph paddingHorizontal={1}>
-        <Link outline to="/community">
+        <Link outline to="/community#organizations">
           See More
         </Link>
       </Paragraph>
