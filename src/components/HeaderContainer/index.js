@@ -1,20 +1,19 @@
 import { array, node, object, oneOfType } from 'prop-types'
 import { Bit } from 'stemcell'
 import React from 'react'
+import ThemeProvider from '../ThemeProvider'
 
 const style = {
   root: {
-    '--colorAccent': 'var(--colorPrimary-500)',
-    '--colorLink': 'var(--colorText)',
-    '--colorText': 'white',
-    color: 'var(--colorText)',
     fontFamily: `var(--fontAccent)`,
     fontWeight: 400
   }
 }
 
 const HeaderContainer = ({ children, css, ...props }) => (
-  <Bit css={[style.root, css]} {...props}>{children}</Bit>
+  <ThemeProvider theme="invert">
+    <Bit css={[style.root, css]} {...props}>{children}</Bit>
+  </ThemeProvider>
 )
 
 HeaderContainer.propTypes = {
