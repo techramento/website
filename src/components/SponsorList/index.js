@@ -56,12 +56,12 @@ const SponsorList = (props, { sponsors }) => (
     </List>
     <Bit as="footer" css={style.footer} marginTop={1}>
       <Text paddingHorizontal={1}>
-        <Link outline to="/sponsors">
+        <Link outline to="/join#donate-today">
           Sponsor Us
         </Link>
       </Text>
       <Text paddingHorizontal={1}>
-        <Link outline to="/community/sponsors">
+        <Link outline to="/join#corporate-partners">
           See More
         </Link>
       </Text>

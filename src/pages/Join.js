@@ -8,6 +8,7 @@ import Link from '../components/Link'
 import Page from '../layouts/Page'
 import React from 'react'
 import Section from '../components/Section'
+import SponsorDetailList from '../components/SponsorDetailList'
 import Testimonials from '../components/Testimonials'
 import WhatWeOffer from '../components/WhatWeOffer'
 
@@ -32,6 +33,7 @@ const Join = (props, { metadata: { mainNav } }) => (
       <Testimonials marginTop={4}/>
       <WhatWeOffer/>
       <DonateToday marginTop={4}/>
+      <SponsorDetailList marginTop={3}/>
     </Page>
   </AppContainer>
 )
