@@ -8,10 +8,12 @@ const style = {
     backgroundImage: `url(${src})`
   }),
   root: {
+    backgroundColor: 'var(--colorBackground)',
     backgroundPositionX: '50%',
     backgroundPositionY: '50%',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    color: 'var(--colorText)',
     filter: 'brightness(0.75)',
     position: 'absolute',
     zIndex: -1

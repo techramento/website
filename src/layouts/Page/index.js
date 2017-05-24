@@ -16,14 +16,12 @@ const style = {
   },
   heading: {
     alignSelf: 'center',
+    color: 'var(--colorAccent)',
     display: 'flex',
     flexDirection: 'column',
     position: 'relative',
     textAlign: 'center',
     textTransform: 'uppercase'
-  },
-  overlay: {
-    backgroundColor: 'var(--colorAccent)'
   },
   pageHeader: {
     display: 'flex',
@@ -121,11 +119,7 @@ const Page = (
     <Bit {...props}>
       <Helmet meta={meta} title={metaTitle}/>
       <HeaderContainer css={style.pageHeader} paddingVertical={3}>
-        <HeroOverlay
-          blend={colorOverlay}
-          css={style.overlay}
-          src={heroImgSrc}
-        />
+        <HeroOverlay blend={colorOverlay} src={heroImgSrc}/>
         {callToAction(head)}
       </HeaderContainer>
       <Bit css={style.content}>

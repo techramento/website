@@ -25,8 +25,8 @@ const style = {
 const Testimonials = (props, { metadata: { testimonials } }) => (
   <ThemeProvider theme="invert">
     <HeroSection
-      hero="/assets/images/community/hero@2x.jpg"
       paddingTop={2}
+      src="/assets/images/community/hero@2x.jpg"
       {...props}
     >
       <ComponentHeading level={4}>
