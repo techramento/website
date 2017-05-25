@@ -14,16 +14,10 @@ const Community = (props, { metadata: { mainNav } }) => (
     <Page head={findMainPage(mainNav, 'Community')}>
       <Section marginTop={2}>
         <ComponentHeading align="left">
-          Stewards
+          Technology Stewards
         </ComponentHeading>
         <ColumnarParagraph marginTop={1} size="longPrimer">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          With an on-going Downtown revitalization, Sacramento is shifting focus from government jobs to jobs rooted in innovation. In order to pull this off, Sacramento needs a pool of developers and related tech talent. Techramento is a grassroots effort to build out the foundation for the growth our local development talent needs to lure and land jobs in the technology field. While other organizations are focused on bringing in corporations and entrepeneurs, we are focused on being good stewards to the individual developers, designers, and students that go on to work at those companies.
         </ColumnarParagraph>
       </Section>
       <HowWeWork marginTop={3}/>

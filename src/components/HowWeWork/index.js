@@ -31,10 +31,10 @@ const HowWeWork = (props, { organizations }) => (
     aside={
       <Bit css={style.aside} width={5}>
         <Text block css={style.stat} size="trafalgar">
-          43
+          2,000+
         </Text>
         <Text block size="brevier">
-          Events
+          People Empowered
         </Text>
 
         <Text block css={style.stat} marginTop={1} size="trafalgar">
@@ -58,16 +58,13 @@ const HowWeWork = (props, { organizations }) => (
       How We Work
     </ComponentHeading>
     <Paragraph size="longPrimer">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-      ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-      aliquip ex ea commodo consequat. Duis aute irure dolor in
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-      culpa qui officia deserunt mollit anim id est laborum.
+      Techramento supports our tech community by providing financial, logistical, and technological assistance to the many user groups located in and around Sacramento as well as running our own events to serve the community at large. We can offer fiscal sponsorship, meetup and event venue assistance, and guidance on maintaining a social media and web presence.
+    </Paragraph>
+    <Paragraph size="longPrimer">
+      Each of our member organization’s events are focused on creating a diverse and inclusive environment aimed at continuing the education of its members and preparing them for a successful and continued career in technology.
     </Paragraph>
     <Bit as="footer" css={style.footer} marginTop={1}>
-      <Link css={style.link} inline={false} size="longPrimer" to="/">
+      <Link css={style.link} inline={false} size="longPrimer" to="/join">
         Become a Member
       </Link>
       <Link css={style.link} inline={false} size="longPrimer" to="/">
