@@ -44,7 +44,7 @@
     "lodash-es": "^4.17.4",
     "prop-types": "^15.5.8",
     "react-fetch-component": "^2.5.1",
-    "stemcell": "^1.1.2",
+    "stemcell": "^1.2.1",
     "zamora": "^1.0.1"
   },
   "eslintConfig": {
