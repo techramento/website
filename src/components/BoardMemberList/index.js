@@ -1,4 +1,5 @@
 import { arrayOf, shape, string } from 'prop-types'
+import ComponentHeading from '../ComponentHeading'
 import List from '../List'
 import ListItem from '../List/ListItem'
 import React from 'react'
@@ -14,7 +15,10 @@ const style = {
 
 const BoardMemberList = (props, { metadata: { team } }) => (
   <Section {...props}>
-    <List collection={team} css={style.list}>
+    <ComponentHeading align="left">
+      Meet Our Board
+    </ComponentHeading>
+    <List collection={team} css={style.list} marginTop={1}>
       {({ avatarUrl, name, title }) => (
         <ListItem imgsrc={avatarUrl} key={title} rounded title={name}>
           {title}

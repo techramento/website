@@ -11,10 +11,10 @@ import WhatWeDo from '../components/WhatWeDo'
 const Join = (props, { metadata: { mainNav } }) => (
   <AppContainer>
     <Page head={findMainPage(mainNav, 'Mission')}>
-      <BoardMemberList marginTop={4}/>
       <HowWeAreDifferent marginTop={4}/>
       <WhatWeDo marginTop={4}/>
       <HowWeWork marginTop={4}/>
+      <BoardMemberList marginTop={4}/>
     </Page>
   </AppContainer>
 )
