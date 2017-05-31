@@ -1,5 +1,6 @@
 import AppContainer from '../AppContainer'
 import { arrayOf, shape, string } from 'prop-types'
+import BeAPartOfUs from '../components/BeAPartOfUs'
 import ColumnarParagraph from '../components/ColumnarParagraph'
 import ComponentHeading from '../components/ComponentHeading'
 import DonateToday from '../components/DonateToday'
@@ -10,7 +11,6 @@ import React from 'react'
 import Section from '../components/Section'
 import SponsorDetailList from '../components/SponsorDetailList'
 import Testimonials from '../components/Testimonials'
-import WhatWeOffer from '../components/WhatWeOffer'
 
 const Join = (props, { metadata: { mainNav } }) => (
   <AppContainer>
@@ -31,7 +31,7 @@ const Join = (props, { metadata: { mainNav } }) => (
         </ColumnarParagraph>
       </Section>
       <Testimonials marginTop={4}/>
-      <WhatWeOffer/>
+      <BeAPartOfUs/>
       <DonateToday marginTop={4}/>
       <SponsorDetailList marginTop={3}/>
     </Page>
